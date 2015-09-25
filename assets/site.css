@@ -8,8 +8,8 @@ main {
 
 .example {
     float: right;
-    width: 225px;
+    width: 275px;
 
-    margin-right: -40px;
+    margin-right: -75px;
     padding: 0px 5px 5px 25px;
 }
