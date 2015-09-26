@@ -7,9 +7,19 @@ main {
 }
 
 .example {
+    display: block;
     float: right;
-    width: 275px;
+    font-size: .75rem;
 
     margin-right: -75px;
     padding: 0px 5px 5px 25px;
+}
+
+.example img {
+    width: 275px;
+}
+
+.example figcaption {
+    text-align: center;
+    display: block;
 }
