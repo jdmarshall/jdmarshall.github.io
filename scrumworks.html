@@ -4,7 +4,7 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
-    <title>About Jason</title>
+    <title>ScrumWorks Pro</title>
     <link rel="stylesheet" type="text/css" href="assets/normalize.css"/>
     <link rel="stylesheet" type="text/css" href="assets/site.css"/>
 </head>
@@ -144,24 +144,84 @@
         <code>[Theme1, Theme2, Theme3, The...] In Progress</code>
     </blockquote>
 
-    <h2>Commentary</h2>
-
-    <figure class="example screenshot">
-        <img title="Planning Column" src="assets/images/planning.png"/>
-        <figcaption>Count the regressions</figcaption>
-    </figure>
+    <h2>Commentary, Lessons Learned</h2>
 
     <p>
-        I'm a stickler for details, as was my boss on this project.  While prepping this material, I went to find some
-        more images of ScrumWorks as it is today. I grabbed this screen capture and the first thing I noticed was that
-        the text is all positioned wrong. 'In Progress' is too low.  All of the numbers are too high.  And the arrow
-        icon is at least two pixels too low.  All of these were problems I remember fixing while on the project.  Layout
-        in such close quarters is often harder than it looks.
+        We changed course, technologically speaking, a couple times in this project.  Many of those lessons we took
+        forward into the next one.
     </p>
 
+    <h3>CSS</h3>
     <p>
-        On our next project, we made a number of process changes to make layout a lot easier, including doing pixel
-        arithmetic entirely with Sass, and using Compass for our icons.
+        CSS is extremely powerful.  Often there are several ways to do something, but they don't necessarily work
+        consistently on different browsers.  We also had a mix of expertise levels, from very high, to fairly low,
+        and a mix of full stack developers who had different expectations as to how much HTML and CSS they were
+        interested in knowing. Some wanted to learn anything you were willing to share, others were comfortable at
+        their current level.
+    </p>
+    <p>
+        We had to condense down our CSS to a subset of rules that everyone on the team could follow, and that worked
+        everywhere.  We had a lot of block elements for fine control of vertical and horizontal spacing.  We used,
+        almost exclusively, CSS classes both for our style and for jQuery selectors for two reasons.  First, so that
+        people only had to know a very little about selectivity.  Second, every time we thought "Only one of this
+        thing will ever appear on a page" and used IDs for jQuery selectors, we proven were wrong.  Fixing the
+        problem was painful every time, and eventually only myself and one other engineer were willing and able to
+        tackle them properly.
+    </p>
+
+    <figure class="example">
+        <img title="Planning Column" src="assets/images/planning.png"/>
+        <figcaption>Layout regressions</figcaption>
+    </figure>
+    <p>
+        Vertical layout, and to a lesser extent, any pixel-accurate control of position, is still a guaranteed adventure
+        in CSS.  It was challenging to get right, and if you look closely at the diagram at the right you'll see at least
+        3 alignment issues (I count 4), each of which I had addressed during my time on the project.  It's taxing to
+        maintain these sorts of relationships over a long period of time.
+    </p>
+    <p>
+        On our next project we adopted Sass and Compass, which outright solved almost half of our layout issues, and
+        made the others easier to manage.  Things like "Make this element X pixels tall, and make these two elements
+        half that height" came down to pixel arithmetic in our Sass files.  Compass also made it dead simple both to
+        get icon alignment right, but to avoid icon bleed when the User Agent is zoomed (sub pixel rendering can result
+        in one line of pixels from a neighboring icon to display)
+    </p>
+
+    <h4>Client side HTML</h4>
+    <p>
+        Our app made use of Progressive Enhancement (mostly for network optimization, not for disabling Javascript),
+        which unfortunately meant that many UI elements were implemented twice, once in JSP and once in jQuery.  Each
+        would have different display bugs, especially around business logic, and occasionally with escaping characters.
+        As we added deeper layers of functionality to the application the writing was on the wall and we had to step
+        back.  Today this problem is a major selling point of 'isomorphic' frameworks, but those didn't yet exist.
+    </p>
+    <p>
+        Over time we found many strategies to ameliorate these problems.  We established javascript style guidelines to
+        make the code for generated HTML read a bit like a templating engine.  We eliminated some server rendering and
+        moved it to the client.  We developed tricks to avoid the long stall typical of AJAX apps on initial page load.
+        For instance on some pages we injected the initial JSON payload into the source, and the client would parse and
+        render it without an additional round trip to the server.  On our next project we went much farther, with a
+        single rendering engine and experimented more deeply with PJAX (loading HTML snippets from the server and
+        pasting them into the current page).
+    </p>
+
+    <h4>Vertical feature teams</h4>
+
+    <p>
+        Another problem was getting the wrong data from the server.  Early in the project we split stories into front
+        end and backend, but as most people soon realize, this causes logistical problems down the road.  To fill a
+        display you have to have all of the information necessary in one place, and often interpreted just so.  Working
+        in a vacuum, backend folk are often guilty of asking themselves "Is all the data for this page available?"
+        instead of asking "Is all of the data for this page available in one or two requests?"  Once someone has marked
+        something 'Done' they resist reopening it.  And responsiveness suffers if the front end people have to ask the
+        server questions before they can ask the question they really need answered, and interpreting data on the front
+        end is a common source for having the same bug appear multiple times in the code base (no single point of
+        authority).
+    </p>
+    <p>
+        Integrating the development into a single story that delivers the feature all the way from disk drive to pixels
+        avoids many of these problems.  It also resulted in less rework and retesting of our test plans, because the
+        backend is only delivered once.
     </p>
 </main>
 </body>
