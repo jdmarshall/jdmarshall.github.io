@@ -19,6 +19,10 @@ main {
     width: 275px;
 }
 
+.screenshot img {
+    width: 250px;
+}
+
 .example figcaption {
     text-align: center;
     display: block;

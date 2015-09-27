@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+    <title>About Jason</title>
+    <link rel="stylesheet" type="text/css" href="assets/normalize.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/site.css"/>
+</head>
+
+<body>
+<main class="main">
+    <h2>Project #1: Scrumworks Pro, versions 6.0, 6.1</h2>
+
+    <p>
+        Most of my front-end work has been in fairly densely related data, and the presentation concerns that come
+        with it. Both of my projects at CollabNet were project management tools, a problem space and workflow that I was
+        personally well acquainted with.
+    </p>
+
+    <h3>Design Criteria</h3>
+    <p>
+        In ScrumWorks, 'version 1' of the new web interface was intended for daily use by developers, and biweekly use
+        during a planning meeting.  Just in that one sentence are a number of pretty substantial constraints on the
+        design.
+    </p>
+
+    <div>
+        <dl>
+            <dt>Responsive</dt>
+            <dd>
+                First, we had to support everything from IE 7 to Mobile Safari.  It had to work on projectors.  And it
+                had to do something useful with a 1650 pixel wide monitor.
+            </dd>
+            <dt>Visibility</dt>
+            <dd>
+                I had a friend years ago who worked in ADA advocacy, and I knew someone who had a rare form of color
+                blindness.  I also have a pet peeve about factory color settings on low- and mid-end projectors (in
+                brief, they are awful, and almost nobody ever changes them).  Even for individuals of nominally 'normal'
+                vision, there are challenges with contrast and hue on a 1024x768 monitor in a meeting room, especially
+                one with windows.  Planning meetings can become stressful enough without everyone arguing about what the
+                tiny text on the projector says (and I have witnessed this first hand on several projects).  Let's not
+                make it worse.
+            </dd>
+            <dt>Real estate</dt>
+            <dd>
+                It's been more than 10 years since projectors became de facto standard in meeting rooms at software
+                companies, and in that time price points have been the major innovation, color and brightness being
+                secondary.  Resolution has hardly budged. It's still very common for projectors to be 768 or 800 pixels
+                high, and 1024 or 1280 pixels wide.  This puts them on par with tablets (which we were also targeting).
+            </dd>
+            <dt>Navigation</dt>
+            <dd>
+                Unsurprisingly, each story has a detail page, where an exhaustive rundown of the story could take up
+                the entire page.  For every other reference to the story we wanted a small 'widget' with a clearly
+                marked mechanism to navigate to the detail page.
+            </dd>
+            <dt>Overview</dt>
+            <dd>
+                Navigation is great, but in a page of very homogenous information, it's hard to know what or if you
+                should look at. Whatever is displayed should give an indication of whether the item is 'interesting'
+            </dd>
+        </dl>
+    </div>
+
+    <h3>Design Proposal</h3>
+
+    <figure class="example">
+        <img title="ScrumWorks Pro" src="assets/images/scrumworks.png"/>
+        <figcaption>Everything about a user story in 4 lines</figcaption>
+    </figure>
+
+    <p>
+        We ended up with a 4 line design, similar to what you see on the right.  This is not my design, but it has my
+        fingerprints all over it.  At the time I was fascinated with the way modern board and card games lay out
+        information (it is common for UX experiments to run in games and then be adopted by the mainstream later).  Many
+        different qualities and quantities are stuffed into a rectangle the size of a playing card, and each card puts
+        the same information in the same spots and in the same manner, but different kinds of information receive
+        different treatments that are easily distinguished from one another, upside down on the other side of the table.
+        A story 'tile' on a projector isn't a terribly different problem.
+    </p>
+
+    <h4>Header</h4>
+    <p>
+        The top line has the story ID and link to the detail page. The arrow next to the number was the application's
+        convention for links that cause a navigation rather than opening something in-pane.  The ID is really the only
+        field that grows, so it is the fluid element in this row (ie, it gets all of the 'extra' space).
+    </p>
+    <p>
+        Next is the comment icon.  On a story with no comments, it is absent.  With one or more comments, it's always a
+        fixed width, and we show a 1-2 digit number (1-99, '99+') centered over the icon representing the number of
+        comments on the story, an indication of activity level.  This is the only block that disappears, meaning that
+        no other elements are always in the same positions.  This element has a contrast problem.  It's white text on a
+        dark grey background.  A very difficult color combination for legibility.
+    </p>
+    <p>
+        What you can't see in the screen shot is that I'm using an extremely subtle black text shadow to increase the
+        legibility.  It's so subtle in fact that you can't see it unless I turn it off an on while you watch, but you
+        can definitely see that the text is 'crisp' with it and 'fuzzy' without.  It's one of my favorite CSS tricks,
+        and it also works with dark text on a grey background (with a white shadow), and in situations where saturation
+        is a problem (eg, off-white text on deep blue).
+    </p>
+    <p>
+        The third segment is the number of tasks on the story.  This is always shown (the absence of tasks is itself
+        'interesting').  This field grows to the number of tasks, but in practice while stories grow to 5 digits on a
+        long project (more if you share a SW instance with other teams), more that 100 tasks on a single story is
+        virtually impossible.
+    </p>
+
+    <figure class="example screenshot">
+        <img title="Planning Column" src="assets/images/planning.png"/>
+        <figcaption>Current version</figcaption>
+    </figure>
+
+    <p>
+        The 'points' on the story was a contentious issue.  It's the estimate for this story, almost always a 1 or 2
+        digit number (although 3 is legal, most users find it impractical).  We wanted it to stand out, especially in a
+        planning meeting.  No icon we tried represented it well (and some distracted from the number).  Just having the
+        number larger and bold helped (my preference), but not enough for everybody.  Since we still had about 80 pixels
+        of free space, we ended up with the word 'EFFORT'.  Not long afterward we added an 'effort' sum to the top of
+        the column with the word 'Effort' above it, and removed it from the tiles.
+    </p>
+
+    <h4>The body</h4>
+
+    <p>
+        We really wanted only one line for the title, but several problems presented.  First, a three line tile looked
+        a little odd, like a strange macaroon.  But the main issue is that User Stories tend to get long titles, the
+        most important words are often in the middle.  Some people are good at avoiding this pattern, but some do it
+        habitually.  By going to two lines we end up with enough story title to differentiate them.
+    </p>
+
+    <h4>Themes and Status</h4>
+
+    <p>
+        In the bottom right corner we display the current status of the story.  This piece is variable, so we give it as
+        much space as it wants. The rest of the line is the Themes.
+    </p>
+
+    <p>
+        In ScrumWorks stories have tags called "Themes".  This ended up being the most technical bit to get right, and
+        in the end it fell to me to fix it.  To help delimit them in the new and the old UI we put them in brackets.
+        Often more than can fit in the available space. When their isn't enough space, we display something like:
+    </p>
+    <blockquote>
+        <code>[Theme1, Theme2, Theme3, The...] In Progress</code>
+    </blockquote>
+
+    <h2>Commentary</h2>
+
+    <figure class="example screenshot">
+        <img title="Planning Column" src="assets/images/planning.png"/>
+        <figcaption>Count the regressions</figcaption>
+    </figure>
+
+    <p>
+        I'm a stickler for details, as was my boss on this project.  While prepping this material, I went to find some
+        more images of ScrumWorks as it is today. I grabbed this screen capture and the first thing I noticed was that
+        the text is all positioned wrong. 'In Progress' is too low.  All of the numbers are too high.  And the arrow
+        icon is at least two pixels too low.  All of these were problems I remember fixing while on the project.  Layout
+        in such close quarters is often harder than it looks.
+    </p>
+
+    <p>
+        On our next project, we made a number of process changes to make layout a lot easier, including doing pixel
+        arithmetic entirely with Sass, and using Compass for our icons.
+    </p>
+</main>
+</body>
+</html>
