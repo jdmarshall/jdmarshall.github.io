@@ -211,12 +211,11 @@
         Another problem was getting the wrong data from the server.  Early in the project we split stories into front
         end and backend, but as most people soon realize, this causes logistical problems down the road.  To fill a
         display you have to have all of the information necessary in one place, and often interpreted just so.  Working
-        in a vacuum, backend folk are often guilty of asking themselves "Is all the data for this page available?"
-        instead of asking "Is all of the data for this page available in one or two requests?"  Once someone has marked
-        something 'Done' they resist reopening it.  And responsiveness suffers if the front end people have to ask the
-        server questions before they can ask the question they really need answered, and interpreting data on the front
-        end is a common source for having the same bug appear multiple times in the code base (no single point of
-        authority).
+        in a vacuum, backend-only folk are often guilty of asking themselves "Is all the data for this page available?"
+        instead of asking "Is all of the data for this page available in one or two round trips?"  Once someone has
+        marked something 'Done' they resist reopening it.  And responsiveness suffers if the front end people have to
+        ask the server questions before they can ask the question they really need answered, and interpreting data on
+        the front end is a common source for having bugs.  The sort of bugs that keep coming back in different places.
     </p>
     <p>
         Integrating the development into a single story that delivers the feature all the way from disk drive to pixels
