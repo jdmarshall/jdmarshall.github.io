@@ -217,10 +217,30 @@
         ask the server questions before they can ask the question they really need answered, and interpreting data on
         the front end is a common source for having bugs.  The sort of bugs that keep coming back in different places.
     </p>
+
     <p>
         Integrating the development into a single story that delivers the feature all the way from disk drive to pixels
         avoids many of these problems.  It also resulted in less rework and retesting of our test plans, because the
         backend is only delivered once.
+    </p>
+
+    <h4>IE7 is Measurably Awful</h4>
+
+    <p>
+        All through the development process, I was keeping a rough count of both the number of browser specific issues
+        and the amount of time spent fixing them.  A few issues showed up in Chrome (one that was difficult to fix)
+        several times as many in Firefox, and the rest in IE.  But what really stood out was that the IE bugs took
+        much, much longer to fix, upward of 5x as long, and one version in particular.  At the end of the day, I went
+        to Victor with numbers:  almost 50% of effort spent on fixing single-browser issues was spent just on IE
+        version 7.
+    </p>
+
+    <h4>Addendum</h4>
+
+    <p>
+        There were other lessons to learn from the project, but so often it takes us a long time to verbalize them, or
+        event to identify them.  A few of these surfaced on the next project, <a href="orchestrate.html">CollabNet
+        Orchestrate</a>
     </p>
 </main>
 </body>
