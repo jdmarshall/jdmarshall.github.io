@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+    <title>ScrumWorks Pro</title>
+    <link rel="stylesheet" type="text/css" href="assets/normalize.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/site.css"/>
+</head>
+
+<body>
+<main class="main">
+    <h2>Project #2: Orchestrate v1.0</h2>
+
+    <p>
+        From there we cast a bigger net.  Orchestrate was designed to cross-reference User Stories, code commits,
+        CI builds, and code reviews.  With this it builds a story of "how is the project coming along?"
+    </p>
+
+    <h3>Design Criteria</h3>
+    <p>
+    </p>
+
+    <div>
+        <dl>
+            <dt>Responsive</dt>
+            <dd>
+                First, we had to support everything from IE 7 to Mobile Safari.  It had to work on projectors.  And it
+                had to do something useful with a 1650 pixel wide monitor. It's been more than 10 years since projectors
+                became de facto standard in meeting rooms at software companies, and in that time price points have been
+                the major innovation, color and brightness being secondary. Resolution has hardly budged. It's still
+                very common for projectors to be 768 or 800 pixels high, and 1024 or 1280 pixels wide.  This puts them on
+                par with tablets (which we were also targeting).
+            </dd>
+            <dt>Visibility</dt>
+            <dd>
+                I had a friend years ago who worked in ADA advocacy, and I knew someone who had a rare form of color
+                blindness.  I also have a pet peeve about factory color settings on low- and mid-end projectors (in
+                brief, they are awful, and almost nobody ever changes them).  Even for individuals of nominally 'normal'
+                vision, there are challenges with contrast and hue on a 1024x768 monitor in a meeting room, especially
+                one with windows.  Planning meetings can become stressful enough without everyone arguing about what the
+                tiny text on the projector says (and I have witnessed this first hand on several projects).  Let's not
+                make it worse.
+            </dd>
+            <dt>Navigation</dt>
+            <dd>
+                Unsurprisingly, each story has a detail page, where an exhaustive rundown of the story could take up
+                the entire page.  For every other reference to the story we wanted a small 'widget' with a clearly
+                marked mechanism to navigate to the detail page.
+            </dd>
+            <dt>Overview</dt>
+            <dd>
+                Navigation is great, but in a page of very homogeneous information, it's hard to know what or if you
+                should look at. Whatever is displayed should give an indication of whether the item is 'interesting'
+            </dd>
+        </dl>
+    </div>
+
+    <h3>Design Proposal</h3>
+
+    <figure class="example">
+        <img title="CollabNet Orchestrate" src="assets/images/orchestrate.png"/>
+        <figcaption>Bigger and cleaner</figcaption>
+    </figure>
+
+    <p>
+        This design was a collaboration with our new UX Designer, <a href="schubox.com">Kevin Schumacher</a>
+    </p>
+
+    <p>
+        Vertically stacked blocks of similar text are nearly impossible to scan quickly.  I've known about this problem
+        and saw it in Scrumworks.  I'm sure I've seen it discussed in UI literature, though I couldn't rightly say
+        where. But shape and color changes 'catch' the eye and allow you to find things like section delimiters in text.
+        It's one of the reasons hierarchical data always has a shape.  The color flash through a section of the field of
+        vision that has seen only one solid color is seen as a distinct movement, and draws the attention.
+    </p>
+    <p>
+        ScrumWorks had a saturated (blue) color bar band between sections that was just barely enough to catch your eye
+        when scrolling quickly, and it helped tremendously.
+    </p>
+    <h2>Commentary, Lessons Learned</h2>
+
+</main>
+</body>
+</html>
