@@ -6,6 +6,10 @@ main {
     text-align: justify;
 }
 
+h1, h2, h3 {
+    clear: both;
+}
+
 .example {
     display: block;
     float: right;
