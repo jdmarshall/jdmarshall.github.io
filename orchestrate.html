@@ -12,11 +12,24 @@
 <body>
 <main class="main">
     <p>Work in progress</p>
-    <h2>Project #2: Orchestrate v1.0</h2>
+    <h2>CollabNet Orchestrate v1.0</h2>
     
     <p>
-        From there we cast a bigger net.  Orchestrate was designed to cross-reference User Stories, code commits,
-        CI builds, and code reviews.  With this it builds a story of "how is the project coming along?"
+        From ScrumWorks we moved on to another project and cast a bigger net.  Orchestrate was designed to 
+        cross-reference User Stories, code commits, CI builds, and code reviews.  With this it builds a story of "how is
+        the project coming along?"  
+    </p>
+    
+    <p>
+        This question is in a category of interruption that developers find particularly frustrating, in large part 
+        because it often puts a lot of project management activity onto the developer, and it takes some sophistication 
+        to answer the question in a way that isn't misleading or just plain wrong, and that sort of energy is better 
+        spent on feature implementation or bug fixes.  If you give developers a tool that saves them from having to 
+        perform these sorts of activities, you can generally count on them to keep it up to date.  
+    </p>
+    
+    <p>
+        As I might be able to tell, I was pretty excited to get a chance to work on this project.  
     </p>
 
     <h3>Design Criteria</h3>
@@ -27,28 +40,21 @@
         <dl>
             <dt>Responsive</dt>
             <dd>
-                First, we had to support everything from IE 7 to Mobile Safari.  It had to work on projectors.  And it
-                had to do something useful with a 1650 pixel wide monitor. It's been more than 10 years since projectors
-                became de facto standard in meeting rooms at software companies, and in that time price points have been
-                the major innovation, color and brightness being secondary. Resolution has hardly budged. It's still
-                very common for projectors to be 768 or 800 pixels high, and 1024 or 1280 pixels wide.  This puts them on
-                par with tablets (which we were also targeting).
+                Again, tablets were on the roadmap.  IE 8 and later were the targets, and the plan was to use a simpler
+                page design so that less Javascript was involved in layout.
             </dd>
             <dt>Visibility</dt>
             <dd>
-                I had a friend years ago who worked in ADA advocacy, and I knew someone who had a rare form of color
-                blindness.  I also have a pet peeve about factory color settings on low- and mid-end projectors (in
-                brief, they are awful, and almost nobody ever changes them).  Even for individuals of nominally 'normal'
-                vision, there are challenges with contrast and hue on a 1024x768 monitor in a meeting room, especially
-                one with windows.  Planning meetings can become stressful enough without everyone arguing about what the
-                tiny text on the projector says (and I have witnessed this first hand on several projects).  Let's not
-                make it worse.
+                While this product was not expected to be front and center in a project planning meeting, we anticipated
+                that it could make an appearance in retrospectives, bug triage meetings, and other "things aren't going
+                well" types of meetings.  More importantly, the primary views were going to pack a large number of
+                similar looking items into a small space, so they needed to support perusal - someone glancing over a
+                page (one with a scrollbar) looking for something in particular or for a pattern of behavior.
             </dd>
             <dt>Navigation</dt>
             <dd>
-                Unsurprisingly, each story has a detail page, where an exhaustive rundown of the story could take up
-                the entire page.  For every other reference to the story we wanted a small 'widget' with a clearly
-                marked mechanism to navigate to the detail page.
+                Once again we have an overview page and a detail page, and it needs to be obvious where you are in the
+                site, what you're looking at, and (hopefully) how you got here.
             </dd>
             <dt>Overview</dt>
             <dd>
@@ -68,20 +74,110 @@
     <p>
         This design was a collaboration with our new UX Designer, <a href="schubox.com">Kevin Schumacher</a>
     </p>
+    
+    <h4>Shapes</h4>
+    
+    <p>We kept the 'badge' concept from ScrumWorks and distilled it.</p>
+    <p>
+        We wanted a distinctive identification treatment for each concept in the system.  We knew that each 'kind' of
+        activity in the system would have different details and hence a different format. We knew that a lot of 
+        information for each activity was going to be textual, and we knew that the user needed to be able to quickly
+        identify where they were and what they were looking at, so we didn't want the 'kind' information to be text as
+        well.  
+    </p>
+    
+    <p>
+        So we gave each activity type an icon.  Each icon had a different color scheme (blue, purple, green, gold, gray)
+        and a unique silhouette.  We wanted you to be able to sit in the back of a room and be able to have a rough idea
+        of what was going on even if you forgot your glasses.  We used negative space to separate the high level and 
+        detail information.
+    </p>
+    
+    <h4>Color and Motion</h4>
+    <p>
+        One thing that was driven home for me on the ScrumWorks project was a particular detail of how humans scan a 
+        large volume of data looking for a particular entry or a group.  Absent a very good search engine (one that can
+        find synonyms and typos), we tend to scroll and look for an item, but if you scroll too fast you're not actually
+        seeing the content anymore. Technically, you're not even seeing shapes anymore. The part of your brain 
+        responsible for detecting movement has taken over. The motion part of your brain mostly detects fast transition
+        in brightness. This is why you can scan over heirarchical data so fast; your brain detects the alternating text
+        and white space (due to indentation levels) even when the page is flying past your eyes.  As the black text on
+        the left edge of the page disappears and is replaced by a white background, or vice versa, your visual cortex
+        mistakes it for motion and immediately draws your attention, as if spotting a lion moving in the grass.
+    </p>
+
+    <figure class="example">
+        <img title="CollabNet Orchestrate Detail page" src="assets/images/orchestrate_detail.png"/>
+        <figcaption>Detail view</figcaption>
+    </figure>
 
     <p>
-        Vertically stacked blocks of similar text are nearly impossible to scan quickly.  I've known about this problem
-        and saw it in Scrumworks.  I'm sure I've seen it discussed in UI literature, though I couldn't rightly say
-        where. But shape and color changes 'catch' the eye and allow you to find things like section delimiters in text.
-        It's one of the reasons hierarchical data always has a shape.  The color flash through a section of the field of
-        vision that has seen only one solid color is seen as a distinct movement, and draws the attention.
+        In the ScrumWorks planning page, we had a columnar view with subsections, and each subsection had a header with
+        a very different brightness and saturation than the content. It also had a different indentation. Taken as a
+        whole, the effect was that the subsection header would 'catch' they eye while you were scrolling. In the 
+        Orchestrate situation we have a flat timeline, or activity log, and it's only in the detail views where the 
+        structure is evident. So order, color and brightness have to suffice to reveal the implied structure. When you
+        see something that appears interesting or unusual about the order of events in the system, you can click through
+        to a detail page where your suspicions will either be confirmed or invalidated.
     </p>
+
     <p>
-        ScrumWorks had a saturated (blue) color bar band between sections that was just barely enough to catch your eye
-        when scrolling quickly, and it helped tremendously.
+        For example, in your project activity log, if a build follows 3 commits, and then another build, odds are very 
+        good that the 3 commits are part of the most recent build.  If the build failed, one of those three commits is
+        probably the culprit.
     </p>
+
     <h2>Commentary, Lessons Learned</h2>
 
+    <h3>Color constants should be defined very carefully</h3>
+    <p>
+        With Orchestrate we were initially given carte blanche, except for the color scheme. Against our advice, the 
+        business wanted a design with lots of background colors.  At the first internal demo they decided the design was
+        too busy, and they agreed that 'mostly white with colors for effect' was the right solution.  I thought
+        we had made allowances for this eventuality in the stylesheets, but found out how very wrong I was.  It turns 
+        out that inverting a color palette on an entire website can be a tricky thing, even when you plan for it.  We 
+        had a period of weeks where we ended up with white text on a white background, followed by another week of dark
+        text with inverted shadows making legibility <em>worse</em> instead of better.  As part of fixing this, and
+        since we were already using Sass, we decided that, just as with CSS classes, color constant declarations should
+        have been defined by their <em>purpose</em>, not by their qualities. What's the dominant foreground color, and
+        what's the dominant background color, with a set of gradients, shadows and accent colors built off of that 
+        foundation. They should contain no adjectives about whether they were, for instance, light or dark.
+    </p>
+    
+    <h3>Sometimes you win and lose at the same time</h3>
+    <p>
+        One of the problems with research projects is that sometimes your boss's boss pays for something that they
+        ultimately don't want.  Doing research in a remote office makes this all the more likely. While one part of the
+        organization wanted to experiment with fresh UI concepts, the flagship product has a very distinct look and
+        there were some upset people who expected Orchestrate to look exactly like the main product line.  Much of our
+        best work ended up being removed in later versions of the product, and much of what survives today is the 
+        analytics and data gathering parts of the application.  
+    </p>
+    
+    <h3>Rails is interesting, but not always in a good way</h3>
+    <p>
+        On a more personal note, we chose Ruby on Rails for this project, which represented quite a learning curve for a
+        lot of us.  Unfortunately we also chose a nonstandard database which only supported about half of the 
+        ActiveRecord spec, making much of the standard Rails advice and resources like StackOverflow far less effective.  
+        While about half of us predicted this would be a problem at the start and unfortunately we lost out due to 
+        seniority.  While I don't currently use Rails, I still miss certain features of the templating engine (like 
+        content_for and other transclusion features) and try to encourage Single Page App library maintainers to
+        adopt similar features.
+    </p>
+    <p>
+        What I don't miss about Rails is the very bad discoverability situation.  'Discoverability' is a hard to 
+        quantify quality of a body of code that causes you to ask important questions. Upon seeing one part of the code,
+        you are inspired and encouraged to follow the trail to other parts of the code and by this process you 
+        <em>discover</em> how the entire system actually works.  In a system with poor discoverability you are eternally
+        beholden to the authors when things are inexplicably not working.  Many many times you had to interrupt other
+        developers (especially leads) to figure out why a piece of code was failing silently, because some bit of magic
+        in the system had stopped working and no amount of debugging was going to show you where the problem was.
+    </p>
+    <p>
+        In the interview process we often award extra points for people who are self-starters.  If those self-starters 
+        cannot achieve mastery of the system without constant interactions with the leads, then your project management
+        structure cannot scale.  One lead in particular was constantly swamped with requests for pairing sessions.  
+    </p>
 </main>
 </body>
 </html>
