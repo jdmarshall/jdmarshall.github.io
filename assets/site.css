@@ -1,7 +1,7 @@
 main {
     padding: 10px 50px;
 
-    max-width: 1100px;
+    max-width: 1000px;
     margin: 0 auto;
     text-align: justify;
 }
@@ -10,23 +10,49 @@ h1, h2, h3 {
     clear: both;
 }
 
-.example {
+figure {
     display: block;
     float: right;
-    font-size: .75rem;
+    margin-right: -2rem;
+}
 
-    margin-right: -75px;
+figcaption {
+    text-align: center;
+    display: block;
+    font-size: .75rem;
 }
 
 .example img {
     width: 275px;
 }
 
+
 .screenshot img {
     width: 250px;
 }
 
-.example figcaption {
-    text-align: center;
-    display: block;
+@media screen and (min-width: 1200px) {
+    figure {
+        margin-right: -60px;
+    }
 }
+
+@media screen and (min-width: 640px) and (max-width: 1200px) {
+    figure {
+        margin-right: -40px;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    figure {
+        float: none;
+        width: auto;
+        padding: 2.5rem 0 1rem;
+    }
+
+    figure img {
+        display: block;
+        width: auto;
+    }
+}
+
