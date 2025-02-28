@@ -23,7 +23,7 @@
     </p>
 
     <p>
-        I spend a lot of time thinking about the process of writing software, and a lot of my work is in making the 
+        I spend a lot of time thinking about the process of writing software, and a lot of my work is in making the
         team function better.  Occasionally I <a href="http://innerjason.wordpress.com">write about it</a>, and I have
         a handful of new topics I'm working on, and some old ones I feel like I'm ready to revisit.  Expect more soon.
     </p>
@@ -63,71 +63,179 @@
 
 
     <h3>My Projects</h3>
-    
+
+    <p>
     There are a lot of people doing front-end work these days, and as a person who identifies as a
-    <a href="#fullstack">full stack developer</a>, I usually don't get asked for a portfolio but times seem to be 
-    changing, so I've started to organize my recollections of the thought processes behind the designs, why we 
-    decided to do and how those decisions changed as we experienced the product firsthand.  
-    
+    <a href="#fullstack">full stack developer</a>, I usually don't get asked for a portfolio but times seem to be
+    changing, so I've started to organize my recollections of the thought processes behind the designs, why we
+    decided to do and how those decisions changed as we experienced the product firsthand.
+    </p>
+
+    <h4>International Systems Research, Zimple</h4>
+
+    <p>
+    ISR was one of the first companies to implement a templating engine for web applications, Zonar, based off of a
+    paper a coworker delivered to the second W3C conference in Chicago. He hooked me up with ISR when they were
+    pestering him for promising undergrads.
+    </p>
+    <p>
+    They decided they wanted to also build a calendar management app, using a local web server and 3 Java Applets.
+    When I showed up the first day the product was very far along, but they also gave me by far the slowest machine and
+    on my screen I could literally watch the pixels render. I'd travelled halfway around the world for this job and I
+    was suddenly worried about having my name on it. Much of what I know about Refactoring and perhaps half of what I
+    know about performance I learned in a baptism by fire on this project. One weekend I wrote -500 lines of code, in
+    service of replacing a copy-pasted code antipattern with quadratic runtime with a single implementation that I
+    then replaced with one that was closer to nlogn. It would be a very long time before I landed a single commit with
+    a larger performance impact.
+    </p>
+
+    <h4>Spacelabs Medical Telemetry Dashboard</h4>
+
+    <p>
+    "Let's show real time medical waveform data in an application written in an interpreted language", said no one ever,
+    except apparently my new boss.
+    </p>
+
+    <p>
+    Everyone - and I mean everyone - at the company, except for my boss, ostensibly his boss, and my new mentor
+    thought Java was too slow to pull this off, and I said, "watch me". Java wouldn't even have a JIT for several years
+    at this point. My boss had only promised the system would deliver smooth painting of 4 data streams at the same
+    time. He <i>hoped</i> that we could some day deliver a larger dashboard that could show data from several patients
+    at once, but he hadn't said that too loud to anyone.
+    </p>
+    <p>
+    In the end we not only hit 4 waveforms, smooth as glass, but if you flipped it to moving-hole mode (typical of older
+    bedside monitors), we could run up to 16 waveforms at once. There was a lot of work on L7 parsing improvements,
+    buffering of input data, and tickling the garbage collector so it didn't fire when we didn't want it to. But the
+    biggest win was replacing direct draw first with double buffering and later with a ring-buffer, which I remembered
+    from a class in college.
+    </p>
+
+    <h4>Washington Appelate Court</h4>
+
+    <p>
+    My Second System Syndrome. As they say in the book Good to Great, you can't escape mediocrity without Confronting
+    the Brutal Facts.
+    </p>
+
+    <p>
+    I won't torture myself too much here but let me just say:  They needed a web application to process the docket for
+    the Court of Appeals. I told them they needed a web application. My boss told them they needed a web application.
+    The employees would have been much happier and more employable learning to build a web application. But what they
+    wanted was a 'native' application in Java. So we gave them what they wanted, and they changed their minds about the
+    requirements so often that rework was killing morale, and so, "resilience to design changes" became one of the most
+    important system requirements behind, "works and doesn't let people delete their criminal records."
+    </p>
+
+    <p>
+    So what I gave them was a built on the new idea of Bean Properties that Sun Microsystems insisted would take over
+    the world any minute. It was essentially a Reactive system, built on events, two decades before we had solved enough
+    problems in degenerate cases for Event systems to make them popular. So I still have some things to say about
+    worst-case behavior in event-driven systems, that were reinforced by the next few such systems I encountered.
+    </p>
+
+    <p>
+    I met two gentlemen who replaced me on that project at a Java User's Group meeting. They asked, "You're Jason,"
+    looked at each other meaningfully, and then confessed that they'd deleted the front-end engine that I built and
+    replaced it with a website. I just nodded and told them, "Yeah I told them they needed a web application." Luckily
+    I did plenty of respectable work on the backend of that system, including an isomorphic validation engine and heaps
+    of optimizations, one of which I still use to this day as an anecdote for why you cannot trust the statistics in
+    profilers.
+    </p>
+
+    <h4>4thPass K-Browser</h4>
+
+    I became an employee of 4thPass, a company famous for making one of the best code obfuscators for Java. I started
+    day one, expecting to work on issues of low-level code, but found out that they had pivoted away from this to two
+    other projects. The newest was a phone app store, about 4 years before the iPhone was introduced. I would later
+    become a Lead on this project, but the other was the KBrowser, and its maintainer had just been promoted to
+    architect.
+
+    Kbrowser was a tiny web browser for PalmOS, and he was partway through accomplihing two things: rewrite it in J2ME
+    to support phones, and port it to the new xhtml-basic format that was trying to send WML and WAP to a much deserved
+    rest. Since I had 'worked on a browser before', (only partly true) they thought I would be a good fit for this
+    project. I... did not. But this would be the second of three lessons in my career that sometimes other people are
+    better judges of what I may or may not be good at than I am.
+
+    I ended up systematically rewriting (again) the entire rendering engine, while the next person we hired wrote the
+    CSS parser, and by the time we were done the screen paint time was almost indistinguishable from Openwave - the
+    reigning mobile browser that was written in C, not an interpreted language. Lots of people cheered us on (apparently
+    people were not fond of having Openwave as a vendor), but feature parity is challenging, when your competitor has
+    ten times as many employees and a browser that is allowed to use 5 times as much disk space as your space allowance.
+    This is the project where I solidified my claim that Java isn't slow, Java programmers are slow.
+
+    I did get to work on that obfuscator after all. Because long before the feature backlog was empty, we had hit our
+    kingly space allowance of 85 kilobytes - anything larger and the target phone would reject the install. Every new
+    feature cost around 500 bytes, so before John or I could even think about writing new code, we first had to find
+    half a kilobyte of space in the existing code. This became a brief period in my life where I could recite the Java
+    Bytecode Specification chapter and verse. I found dozens of bugs in our code obfuscator that left prunable code,
+    ways to rephrase blocks of code to generate shorter bytecode, ways to reorganize our class files to reduce
+    duplication of large function signatures, replaced the J2ME menu system with an html page, and eventually, when
+    every other rock had been turned, leveraged my knowledge of file compression to first tweak our prefix sorting of
+    the constant pool, and subsequently switching to suffix sorting to squeeze the archive by another kilobyte.
+
+    After merging with Motorola, RIM bought this code but they only wanted it for the WAP functionality, which largely
+    predated me, to add to the nascent Blackberry browser. So to the best of my knowledge, a few of my bug fixes lived
+    on in the Blackberry but far less of that code than I would have hoped.
+
+    This job is also where I worked with two different people who would go on to write books on Agile Project
+    Management, and I spent a <i>lot</i> of time talking to both of them.
+
     <h4><a href="scrumworks.html">Scrumworks Pro</a></h4>
 
     <p>
         This was my second heavily interactive web application, and the first modern one.  Built on jQuery and jQueryUI,
-        with substantial drag and drop and some pretty sophisticated layout logic.  
+        with substantial drag and drop and some pretty sophisticated layout logic. I gave it its own page.
     </p>
 
     <h4><a href="orchestrate.html">CollabNet Orchestrate</a></h4>
         For my third, we tried to design a web application to link work in progress to the feature lifecycle, so that
-        all commits, Continuous Integration builds and code reviews were permanently tied to a user story.   
-    <p>
-        
-    </p>
-    
-    <h4>Holland America Booking Website</h4>
-    
-    <p>
-        Description pending.
-    </p>
-    
-    <h4><a href="http://jdmarshall.github.io/hashing/">Hashing Visualization</a></h4>
-    
-    <p>
-        An attempt to visualize how cryptographic hashes work, meant for the layperson.  Also an experiment in building
-        Web Components.  Source is available <a href="https://github.com/jdmarshall/hashing">on GitHub</a>.
-    </p>
-    
+        all commits, Continuous Integration builds and code reviews were permanently tied to a user story.
+
     <h4>Other Projects</h4>
     <p>
-        I've done other UI work, not all of it web based, and a good deal of backend work.  I've also done some graph
-        work, (Process guys always want graphs, and some graphs remind me of the old Mark Twain line about Lies, Damned
-        Lies, and Statistics). I'm currently trying to document these experiences, like a version of my resume in
-        <a href="https://innerjason.wordpress.com/2015/09/20/a-brief-history-of-jason/">short story form</a> that 
-        explains my backend and process improvement work in ways I could never condense into three sentences.
+        Subsequent to this I worked on several contracts with UI work, including Holland America's then-future
+        brochure-ware website for exploring and booking cruises, and a CMS tool used internally at Disney. I also
+        spent some time experimenting with early versions of web components, some of which I began to incorporate
+        into a project for <a href="foodforest.html">Beacon Food Forest</a>.
     </p>
-    
+    <p>
+        I've done other UI work, not all of it web based, and a good deal of backend work.  I've also done some dataviz
+        work, (Process guys always want graphs, and some graphs remind me of the old Mark Twain line about Lies, Damned
+        Lies, and Statistics). This is covered in part in attempt to present my resume in
+        <a href="https://innerjason.wordpress.com/2015/09/20/a-brief-history-of-jason/">short story form</a>.
+    </p>
+
     <h3>Organizations</h3>
 
     <h4><a href="http://cobblers-children.github.io/">The Cobbler's Children</a></h4>
     <p>
-        I'm very interested in applying UX principles to developer tools.  I believe that better tools means better
-        software, and that we have been neglecting issues around tool quality for too long now.  I'm trying to recruit
-        some of my old colleagues into getting organized, and I'm calling it The Cobbler's Children.
+        "The Cobbler's Children Have No Shoes" is a lament about how craftsman spend so much time and energy on their
+        customers that their own needs and those of their families suffers as a consequence. But I think the tragedy
+        here is deeper than this; if we don't insist on high quality tools for ourselves then how do we expect to be
+        inspired to produce high quality tools for our users? You don't use sticks and rocks to craft high-end
+        furniture, but we sure try.
+    </p>
+
+    <p>
+        When I created this github group, the term Developer Experience was still all but unknown. I had intended to
+        recruit people to help me with this plan. I even proposed to a technical book club I belonged to that we begin
+        code reviewing open source data sets, doing a sort of Comparative Literature for code, and then submitting
+        pull requests to improve the code even more. But unfortunately they were not interested at the time.
+
+        I'm very interested in applying UX principles to developer tools. I believe that better tools means better
+        software, and that we have been neglecting issues around tool quality for too long now. I would like to try
+        adain to recruit some of my old colleagues into helping me get organized.
     </p>
 
     <h4><a href="foodforest.html">Beacon Food Forest</a></h4>
-    
     <p>
-        Most of my volunteer effort goes to the Beacon Food Forest, an edible park just south of Downtown Seattle.  
+        Most of my volunteer effort for years went to the Beacon Food Forest, an edible park just south of Downtown
+        Seattle, which unfortunately is too far for me to commute now.
     </p>
     <p>
-        In an effort to apply my professional skills to this project, I have been working on a set of tools for 
+        In an effort to apply my professional skills to this project, I had been working on a set of tools for
         organizing, collecting, and displaying information about Food Forests in an approachable manner.
-    </p>
-    <p>
-        This project is now moving out of a prototype phase, and represents two fairly large subprojects.  One, a crowd
-        sourced informational repository for community outreach, and two, an interactive map application that pulls
-        information from the repository.  This is a long term volunteer effort and a substantial sink of my available
-        free time.
     </p>
 
     <h3 id="fullstack">What does &quot;Full Stack&quot; mean to me?</h3>
