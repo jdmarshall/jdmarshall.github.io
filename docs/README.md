@@ -1,5 +1,3 @@
-<link rel="stylesheet" href="assets/site.css">
-
 Posts
 <ul>
   {% for post in site.posts %}

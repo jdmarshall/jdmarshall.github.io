@@ -3,8 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>{{ page.title }}</title>
-    <link rel="stylesheet" href="{{ "/assets/css/style.css" | prepend: site.baseurl | append: cacheBust }}"/>
-    <link rel="stylesheet" href="/assets/site.css"/>
+    <link rel="stylesheet" href="{{ 'assets/css/style.css' | append: cacheBust | prepend: site.baseurl }}"/>
     {% seo title=false %}
   </head>
   <body>
