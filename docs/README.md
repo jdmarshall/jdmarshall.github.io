@@ -1,3 +1,10 @@
 <link rel="stylesheet" href="assets/site.css">
 
-Hello?
+Posts
+<ul>
+  {% for post in site.posts %}
+    <li>
+      <a href="{{ post.url }}">{{ post.title }}</a>
+    </li>
+  {% endfor %}
+</ul>
