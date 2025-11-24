@@ -1,9 +1,11 @@
 {%- include top.html -%}
 
-<body class="container-lg px-3 my-5 markdown-body">
+<body>
   {%- include header.html -%}
 
-  {{- content -}}
+  <div class="container-lg px-3 my-5 markdown-body">
+      {{- content -}}
+  </div>
 
   {%- include footer.html -%}
   {%- include anchor_links.html -%}
