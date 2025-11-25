@@ -14,6 +14,11 @@ h1 {
   font-size: 28px;
 }
 
+.side-menu {
+  flex-basis: 16rem;
+  flex-shrink: 0;
+}
+
 nav {
   font-size: 13px;
 
@@ -47,7 +52,7 @@ nav {
 div.header-image {
   height: 16vh;
   background-image: url(/assets/images/header.png);
-  background-position-x: center;
+  background-position-x: right;
   background-repeat: no-repeat;
 }
 
