@@ -5,8 +5,10 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link type="application/atom+xml" rel="alternate" href="{{ 'feed/release.xml' | relative_url }}" title="Jekyll releases posts" />
   <link rel="alternate" type="application/atom+xml" title="Recent commits to Jekyll’s master branch" href="{{ site.repository }}/commits/master.atom">
-  <link rel="preload" href="{{ 'assets/css/style.css' | append: cacheBust | relative_url }}" as="style">
-  <link rel="stylesheet" href="{{ 'assets/css/style.css' | append: cacheBust | relative_url }}"/>
+  <link rel="preload" href="{{ 'assets/css/style.css' | relative_url | append: cacheBust  }}" as="style">
+  <link rel="preload" href="{{ 'assets/css/site.css' | relative_url | append: cacheBust  }}" as="style">
+  <link rel="stylesheet" href="{{ 'assets/css/style.css' | relative_url | append: cacheBust  }}"/>
+  <link rel="stylesheet" href="{{ 'assets/css/site.css' | relative_url | append: cacheBust  }}"/>
   <link rel="icon" type="image/x-icon" href="{{ 'favicon.ico' | relative_url }}">
   <title>{{ page.title }}</title>
   {% seo %}

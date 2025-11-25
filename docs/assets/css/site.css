@@ -26,6 +26,11 @@ figcaption {
   width: 275px;
 }
 
+div.header-image {
+  height: 14vh;
+  background-image: url(/assets/images/header.png);
+}
+
 .screenshot img {
   width: 250px;
 }
