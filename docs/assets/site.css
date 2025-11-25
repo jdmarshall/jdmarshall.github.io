@@ -1,58 +1,57 @@
 main {
-    padding: 10px 50px;
+  padding: 10px 50px;
 
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: justify;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: justify;
 }
 
 h1, h2, h3 {
-    clear: both;
+  clear: both;
 }
 
 figure {
-    display: block;
-    float: right;
-    margin-right: -2rem;
+  display: block;
+  float: right;
+  margin-right: -2rem;
 }
 
 figcaption {
-    text-align: center;
-    display: block;
-    font-size: .75rem;
+  text-align: center;
+  display: block;
+  font-size: .75rem;
 }
 
 .example img {
-    width: 275px;
+  width: 275px;
 }
 
-
 .screenshot img {
-    width: 250px;
+  width: 250px;
 }
 
 @media screen and (min-width: 1200px) {
-    figure {
-        margin-right: -60px;
-    }
+  figure {
+    margin-right: -60px;
+  }
 }
 
 @media screen and (min-width: 640px) and (max-width: 1200px) {
-    figure {
-        margin-right: -40px;
-    }
+  figure {
+    margin-right: -40px;
+  }
 }
 
 @media screen and (max-width: 640px) {
-    figure {
-        float: none;
-        width: auto;
-        padding: 2.5rem 0 1rem;
-    }
+  figure {
+    float: none;
+    width: auto;
+    padding: 2.5rem 0 1rem;
+  }
 
-    figure img {
-        display: block;
-        width: auto;
-    }
+  figure img {
+    display: block;
+    width: auto;
+  }
 }
 
