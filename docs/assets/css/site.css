@@ -27,8 +27,11 @@ figcaption {
 }
 
 div.header-image {
-  height: 14vh;
+  height: 16vh;
   background-image: url(/assets/images/header.png);
+  background-color: black;
+  background-position-x: center;
+  background-repeat: no-repeat;
 }
 
 .screenshot img {
