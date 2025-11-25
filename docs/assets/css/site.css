@@ -21,6 +21,13 @@ nav {
     li {
       display: inline-block;
       margin-right: 1rem;
+
+      &.current {
+        a {
+          color: white;
+          font-weight: 600;
+        }
+      }
     }
   }
 }
@@ -46,7 +53,7 @@ header {
 
 .main-nav, .mobile-nav, .header-image {
   a {
-    color: white;
+    color: #ccc;
   }
 }
 
