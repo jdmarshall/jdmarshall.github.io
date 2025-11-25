@@ -5,12 +5,3 @@ and then likely moving my blog entries from Wordpress over to here.
 
 The impetus for this work was the following posts that I am currently working on, and 
 wanting to do something about the old site which never got much work done on it.
-
-## Posts
-<ul>
-  {% for post in site.posts %}
-    <li>
-      <a href="{{ post.url }}">{{ post.title }}</a>
-    </li>
-  {% endfor %}
-</ul>

@@ -22,8 +22,20 @@ figcaption {
   font-size: .75rem;
 }
 
+.side-menu {
+  font-size: 13px;
+
+  ul {
+    list-style-type: none;
+  }
+}
+
 .example img {
   width: 275px;
+}
+
+.flexbox {
+  display: flex;
 }
 
 div.header-image {
