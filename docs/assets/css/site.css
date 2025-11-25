@@ -10,11 +10,18 @@ figcaption {
   font-size: .75rem;
 }
 
-.side-menu {
+nav {
   font-size: 13px;
 
   ul {
     list-style-type: none;
+  }
+
+  &.mobile-nav, &.main-nav {
+    li {
+      display: inline-block;
+      margin-right: 1rem;
+    }
   }
 }
 
@@ -29,9 +36,18 @@ figcaption {
 div.header-image {
   height: 16vh;
   background-image: url(/assets/images/header.png);
-  background-color: black;
   background-position-x: center;
   background-repeat: no-repeat;
+}
+
+header {
+  background-color: black;
+}
+
+.main-nav, .mobile-nav, .header-image {
+  a {
+    color: white;
+  }
 }
 
 .screenshot img {

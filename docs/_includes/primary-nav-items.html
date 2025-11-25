@@ -1,5 +1,5 @@
 <ul>
-  {% for p in site.data.primary_nav -%}
+  {% for p in site.data.navigation.main -%}
   <li
     {%- if p.link == '/' -%}
       {% if page.url == p.link %} class="current" {%- endif -%}

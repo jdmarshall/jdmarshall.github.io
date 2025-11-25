@@ -1,5 +1,5 @@
 <ul>
-  {% for p in site.data.primary_nav -%}
+  {% for p in site.data.navigation.main -%}
     {% if p.show_on_mobile -%}
     <li
       {%- if p.link == '/' -%}

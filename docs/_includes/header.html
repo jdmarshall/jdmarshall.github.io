@@ -1,15 +1,11 @@
-<header class="container-xl px-3 my-5 markdown-body">
+<header class="container-xl px-3 my-5">
   <div class="header-image"></div>
-  <div class="flexbox">
-    <div class="center-on-mobiles">
-      <h1>
-      </h1>
-    </div>
+  <div class="py-1">
     <nav class="main-nav hide-on-mobiles">
       {% include primary-nav-items.html -%}
     </nav>
+    <nav class="mobile-nav show-on-mobiles">
+      {% include mobile-nav-items.html -%}
+    </nav>
   </div>
-  <nav class="mobile-nav show-on-mobiles">
-    {% include mobile-nav-items.html -%}
-  </nav>
 </header>

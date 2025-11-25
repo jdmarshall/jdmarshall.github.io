@@ -8,7 +8,7 @@
       <h1>{{ page.title }}</h1>
       {{- content -}}
     </div>
-    <div class="side-menu px-3 flex-2">
+    <nav class="side-menu px-3 flex-2">
       <h4>Recent Posts</h4>
       <ul>
         {% for post in site.posts %}
@@ -17,7 +17,7 @@
         </li>
         {% endfor %}
       </ul>
-    </div>
+    </nav>
   </div>
 
   {%- include footer.html -%}
