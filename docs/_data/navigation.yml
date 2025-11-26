@@ -4,3 +4,12 @@ main:
 
   - title: "About"
     link: /about
+
+  - title: "Development"
+    link: /development
+
+  - title: "DX"
+    link: /dx
+
+  - title: "Tools"
+    link: /tools
