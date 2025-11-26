@@ -1,5 +1,5 @@
 ---
-title: Tools
+title: Posts about Tools
 ---
 <nav>
   <ul>

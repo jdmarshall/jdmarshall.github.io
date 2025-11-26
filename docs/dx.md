@@ -1,5 +1,5 @@
 ---
-title: Developer Experience
+title: Posts about Developer Experience
 ---
 <nav>
   <ul>
