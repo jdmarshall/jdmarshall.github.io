@@ -43,6 +43,12 @@ nav {
       }
     }
   }
+
+  &.prev-next {
+    a.next {
+      margin-left: auto;
+    }
+  }
 }
 
 .example img {

@@ -5,6 +5,11 @@
 
   <div class="container-lg my-5 flexbox">
     <div class="px-3 flex-auto">
+      <nav class="prev-next flexbox">
+        <a class="prev" href="page.previous.link">{{ page.previous.title }}</a>
+        <a class="next" href="page.next.link">{{ page.next.title }}</a>
+      </nav>
+
       <h1>{{ page.title }}</h1>
       {{- content -}}
     </div>
