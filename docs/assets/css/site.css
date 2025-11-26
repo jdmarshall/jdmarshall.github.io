@@ -1,3 +1,7 @@
+html {
+  scrollbar-gutter: stable;
+}
+
 figure {
   display: block;
   float: right;
@@ -11,7 +15,8 @@ figcaption {
 }
 
 h1 {
-  font-size: 28px;
+  font-size: 27px;
+  margin-bottom: .75rem;
 }
 
 .side-menu {
