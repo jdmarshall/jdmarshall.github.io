@@ -39,7 +39,6 @@ nav {
       &.current {
         a {
           color: white;
-          font-weight: 600;
         }
       }
     }
