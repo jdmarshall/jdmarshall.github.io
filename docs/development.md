@@ -1,5 +1,5 @@
 ---
-title: Posts about Development
+title: Posts About Development
 ---
 
 <nav>

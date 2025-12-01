@@ -5,6 +5,9 @@ main:
   - title: "About"
     link: /about
 
+  - title: "Async"
+    link: /async
+
   - title: "Development"
     link: /development
 
