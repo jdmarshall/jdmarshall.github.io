@@ -19,9 +19,17 @@ h1 {
   margin-bottom: .75rem;
 }
 
+.main {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+}
+
 .side-menu {
-  flex-basis: 20rem;
-  flex-shrink: 0.3;
+  grid-column-start: 2;
+}
+
+.content {
+  grid-row-start: 1;
 }
 
 nav {
@@ -51,8 +59,16 @@ nav {
   }
 }
 
-.markdown-body pre {
-  background-color: #e7e7e7;
+.markdown-body {
+  pre {
+    background-color: #e7e7e7;
+    max-width: 750px;
+    overflow-x: scroll;
+  }
+
+  blockquote {
+    font-size: .9rem;
+  }
 }
 
 .example img {

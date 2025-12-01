@@ -1,19 +1,10 @@
 {%- include top.html -%}
 
-<body>
+<body class="px-3">
   {%- include header.html -%}
 
-  <div class="container-lg my-5 flexbox">
-    <div class="px-3 flex-auto">
-      <nav class="prev-next flexbox">
-        <a class="prev" href="{{ page.previous.url }}">{{ page.previous.title }}</a>
-        <a class="next" href="{{ page.next.url }}">{{ page.next.title }}</a>
-      </nav>
-
-      <h1>{{ page.title }}</h1>
-      {{- content -}}
-    </div>
-    <nav class="side-menu px-3">
+  <div class="main container-lg my-4">
+    <nav class="side-menu pl-4 pb-3">
       <h4>Recent Posts</h4>
       <ul>
         {% for post in site.posts %}
@@ -23,6 +14,15 @@
         {% endfor %}
       </ul>
     </nav>
+    <div class="content px-2">
+      <nav class="prev-next flexbox">
+        <a class="prev" href="{{ page.previous.url }}">{{ page.previous.title }}</a>
+        <a class="next" href="{{ page.next.url }}">{{ page.next.title }}</a>
+      </nav>
+
+      <h1>{{ page.title }}</h1>
+      {{- content -}}
+    </div>
   </div>
 
   {%- include footer.html -%}
