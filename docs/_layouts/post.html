@@ -5,3 +5,9 @@ layout: default
 <section class="markdown-body">
   {{ content }}
 </section>
+
+<section class="py-2">
+  {% if page.topics -%}
+    Posted in {{ page.topics | join: ", " }}
+  {% endif -%}
+</section>
