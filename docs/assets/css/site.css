@@ -63,6 +63,10 @@ nav {
   display: flex;
 }
 
+img.logo {
+  width: 24px;
+}
+
 div.header-image {
   height: 16vh;
   background-image: url(/assets/images/header.png);
