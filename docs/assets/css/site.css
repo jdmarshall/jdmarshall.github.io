@@ -51,6 +51,10 @@ nav {
   }
 }
 
+.markdown-body pre {
+  background-color: #e7e7e7;
+}
+
 .example img {
   width: 275px;
 }
