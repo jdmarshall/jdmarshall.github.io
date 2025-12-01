@@ -6,7 +6,7 @@ title: Posts About Asynchronous Code
   {% for post in site.posts %}
     {% if post.topics contains "Tools" %}  
       <dl>
-        <dt><a href="{{ post.link }}">{{ post.title }}</a></dt>
+        <dt><a href="{{ post.url }}">{{ post.title }}</a></dt>
         <dd>{{post.excerpt}}</dd>
       </dl>
     {% endif %}
