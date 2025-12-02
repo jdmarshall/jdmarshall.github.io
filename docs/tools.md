@@ -14,7 +14,7 @@ I really should have more posts in this category than I do, given how often I th
 
 <nav>
   {% for post in site.posts %}
-    {% if post.topics contains "DX" %}  
+    {% if post.topics contains "Tools" %}  
       <dl>
         <dt><a href="{{ post.url }}">{{ post.title }}</a></dt>
         <dd>{{post.excerpt}}</dd>
