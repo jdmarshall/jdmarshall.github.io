@@ -89,6 +89,7 @@ img.logo {
 
 div.header-image {
   height: 16vh;
+  min-height: 80px;
   background-image: url(/assets/images/header.png);
   background-position-x: right;
   background-repeat: no-repeat;
