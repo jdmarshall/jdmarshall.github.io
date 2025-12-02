@@ -27,10 +27,11 @@ Daring Fireball website:
 
 <img src="/assets/images/blog/screen-shot-2015-04-16-at-10-32-50-pm.png"/>
 
-That’s what it looks like maximized on my screen. Let me be clear: I’m not picking on DF. Their layout is what inspired me to finally
-commit some ideas to paper, but this has been bugging me for a while. The project tool I worked on back in ’12 looked just terrible above 1400 pixels, and we couldn’t 
-really come up with anything to do with that space. And that was knowing at the time that [Nielsen
-was suggesting you tune your site for 1440 pixels](http://www.nngroup.com/articles/computer-screens-getting-bigger/).
+That’s what it looks like maximized on my screen. Let me be clear: I’m not picking on DF. Their 
+layout is what inspired me to finally commit some ideas to paper, but this has been bugging me for a
+while. The project tool I worked on back in ’12 looked just terrible above 1400 pixels, and we 
+couldn’t really come up with anything to do with that space. And that was knowing at the time that
+[Nielsen was suggesting you tune your site for 1440 pixels](http://www.nngroup.com/articles/computer-screens-getting-bigger/).
 And of course in all fairness, if you look at my blog on my monitor, it looks like this, which I 
 confess is only marginally better than DF:
 
