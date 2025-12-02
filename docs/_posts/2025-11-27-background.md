@@ -96,5 +96,5 @@ process.
 
 ## Next Steps
 
-In the next installment, I will introduce the [p-limit](https://github.com/sindresorhus/p-limit)
+In the [next installment](2025/11/30/part1.html), I will introduce the [p-limit](https://github.com/sindresorhus/p-limit)
 library and then enumerate techniques to leverage it for everything it's worth. Stay Tuned.
