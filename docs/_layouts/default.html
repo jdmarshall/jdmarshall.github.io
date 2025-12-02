@@ -7,7 +7,7 @@
     <nav class="side-menu pl-4 pb-3">
       <h4>Recent Posts</h4>
       <ul>
-        {% for post in site.posts %}
+        {% for post in site.posts limit: 8 %}
         <li>
           <a href="{{ post.url }}">{{ post.title }}</a>
         </li>

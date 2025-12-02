@@ -5,7 +5,7 @@ html {
 figure {
   display: block;
   float: right;
-  margin-right: -2rem;
+  margin-right: -1rem;
 }
 
 figcaption {
@@ -69,6 +69,10 @@ nav {
   blockquote {
     font-size: .9rem;
   }
+
+  img.operator {
+
+  }
 }
 
 .example img {
@@ -105,15 +109,9 @@ header {
 }
 
 @media screen and (min-width: 1200px) {
-  figure {
-    margin-right: -60px;
-  }
 }
 
 @media screen and (min-width: 640px) and (max-width: 1200px) {
-  figure {
-    margin-right: -40px;
-  }
 }
 
 @media screen and (max-width: 640px) {
