@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Passive Testing"
-topics: [ Development, Testing, Tools ]
+topics: [ Development, DX, Testing, Tools ]
 excerpt: "Thoughts on multi-device testing"
 ---
 

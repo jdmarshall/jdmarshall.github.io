@@ -14,5 +14,8 @@ main:
   - title: "DX"
     link: /dx
 
+  - title: "Performance"
+    link: /perf
+
   - title: "Tools"
     link: /tools
