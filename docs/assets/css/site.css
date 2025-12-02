@@ -67,16 +67,14 @@ nav {
 .markdown-body {
   pre {
     background-color: #e7e7e7;
-    max-width: 750px;
+    max-width: min(750px, 70vw);
     overflow-x: scroll;
   }
 
   blockquote {
-    font-size: .9rem;
-  }
-
-  img.operator {
-
+    font-size: 1.2rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
   }
 }
 
@@ -114,10 +112,10 @@ header {
   width: 250px;
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1024px) {
 }
 
-@media screen and (min-width: 640px) and (max-width: 1200px) {
+@media screen and (min-width: 640px) and (max-width: 1024px) {
 }
 
 @media screen and (max-width: 640px) {
@@ -138,6 +136,12 @@ header {
 
   .side-menu {
     grid-column-start: 1;
+  }
+
+  .markdown-body {
+    pre {
+      max-width: 90vw;
+    }
   }
 
   div.header-image {
