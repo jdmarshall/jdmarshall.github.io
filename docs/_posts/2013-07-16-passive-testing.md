@@ -6,7 +6,7 @@ excerpt: "Thoughts on multi-device testing"
 ---
 
 <figure>
-  <img class="operator" src="/assets/images/blog/operator.webp" width="400px"/>
+  <img class="operator" src="/assets/images/blog/operator.png" width="400px"/>
   <figcaption>You get used to it. I don’t even see the code.</figcaption>
 </figure>
 
