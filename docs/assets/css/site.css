@@ -125,5 +125,18 @@ header {
     display: block;
     width: auto;
   }
+
+  .content {
+    grid-row-start: 2;
+  }
+
+  .side-menu {
+    grid-column-start: 1;
+  }
+
+  div.header-image {
+    height: 120px;
+    background-position-x: center;
+  }
 }
 
