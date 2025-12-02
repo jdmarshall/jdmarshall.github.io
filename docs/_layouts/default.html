@@ -15,12 +15,10 @@
       </ul>
     </nav>
     <div class="content px-2">
-      <nav class="prev-next flexbox">
-        <a class="prev" href="{{ page.previous.url }}">{{ page.previous.title }}</a>
-        <a class="next" href="{{ page.next.url }}">{{ page.next.title }}</a>
-      </nav>
+      {%- include prev_next.html -%}
 
       <h1>{{ page.title }}</h1>
+
       {{- content -}}
     </div>
   </div>
