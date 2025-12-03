@@ -1,0 +1,5 @@
+title: Jason Marshall's Blog
+description: Tech and Programming Blog
+author: Jason Marshall
+plugins:
+  - jekyll-feed

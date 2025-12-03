@@ -8,4 +8,9 @@
     {% endif -%}
   ><a href="{{ p.link | relative_url }}">{{ p.title }}</a></li>
   {% endfor -%}
+  <li class="social">
+    <a href="/feed.xml" title="Feed">
+      <img class="logo" alt="RSS Feed logo" src="/assets/images/rss.svg"/>
+    </a>
+  </li>
 </ul>
