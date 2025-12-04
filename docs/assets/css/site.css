@@ -97,11 +97,13 @@ nav {
   }
 }
 
-.markdown-body {
+.markdown-body, .markdown-body .highlight {
   pre {
-    background-color: #e7e7e7;
     max-width: min(750px, 70vw);
     overflow-x: scroll;
+
+    border-radius: 0px;
+    background-color: light-dark(#e7e7e7, black);
   }
 
   blockquote {
@@ -139,6 +141,20 @@ div.header-image {
 
 .screenshot img {
   width: 250px;
+}
+
+.highlight {
+  .kc,
+  .kd,
+  .kn,
+  .kp,
+  .kr,
+  .k,
+  .kv,
+  .ow,
+  .o {
+    color: light-dark(#000000, white);
+  }
 }
 
 @media (prefers-color-scheme: dark) {
