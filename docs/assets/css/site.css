@@ -14,6 +14,23 @@ html {
 body {
   color: light-dark(var(--light-fg), var(--dark-fg));
   background-color: light-dark(var(--light-bg), var(--dark-bg));
+
+  display: grid;
+  grid:  auto 1fr auto / 3fr 1fr;
+  min-height: 100vh;
+}
+
+header {
+  background-color: black;
+}
+
+footer {
+  grid-row-start: 3;
+}
+
+header, footer {
+  grid-column-start: 1;
+  grid-column-end: 4;
 }
 
 figure {
@@ -33,12 +50,8 @@ h1 {
   margin-bottom: .75rem;
 }
 
-.main {
-  display: grid;
-  grid-template-columns: 3fr 1fr;
-}
-
 .side-menu {
+  grid-row-start: 2;
   grid-column-start: 2;
 
   ul {
@@ -48,7 +61,7 @@ h1 {
 }
 
 .content {
-  grid-row-start: 1;
+  grid-row-start: 2;
 }
 
 nav {
@@ -116,10 +129,6 @@ div.header-image {
   background-repeat: no-repeat;
 }
 
-header {
-  background-color: black;
-}
-
 .main-nav, .mobile-nav, .header-image {
   a {
     color: #ddd;
@@ -156,7 +165,11 @@ header {
   }
 
   .content {
-    grid-row-start: 2;
+    grid-row-start: 3;
+  }
+
+  footer {
+    grid-row-start: 4
   }
 
   .side-menu {
