@@ -144,16 +144,39 @@ div.header-image {
 }
 
 .highlight {
+  .k, .kd, .se {
+    color: #e67e00;
+  }
+
   .kc,
-  .kd,
   .kn,
   .kp,
   .kr,
-  .k,
   .kv,
   .ow,
   .o {
     color: light-dark(#000000, white);
+  }
+
+  .sb,
+  .sc,
+  .sd,
+  .s2,
+  .sh,
+  .si,
+  .sx,
+  .sr,
+  .s1,
+  .ss {
+    color: #008c00;
+  }
+
+  .na {
+    color: #8968cc;
+  }
+
+  .nb {
+    color: #d9a600;
   }
 }
 
