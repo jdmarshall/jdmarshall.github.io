@@ -1,5 +1,19 @@
+:root {
+  color-scheme: light dark;
+
+  --light-bg: hsl(0, 0%, 95%);
+  --light-fg: hsl(210, 13%, 16%);
+  --dark-bg: var(--light-fg);
+  --dark-fg: hsl(0, 0%, 85%);
+}
+
 html {
   scrollbar-gutter: stable;
+}
+
+body {
+  color: light-dark(var(--light-fg), var(--dark-fg));
+  background-color: light-dark(var(--light-bg), var(--dark-bg));
 }
 
 figure {
@@ -114,6 +128,18 @@ header {
 
 .screenshot img {
   width: 250px;
+}
+
+@media (prefers-color-scheme: dark) {
+  a {
+    color: hsl(214, 50%, 55%);
+    font-weight: 500;
+  }
+
+  footer img.logo {
+    background-color: var(--light-bg);
+    border-radius: 10px;
+  }
 }
 
 @media screen and (min-width: 1024px) {
