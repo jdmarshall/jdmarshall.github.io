@@ -26,6 +26,8 @@ header {
 
 footer {
   grid-row-start: 3;
+  border-top: 1px solid;
+  border-color: light-dark(var(--light-fg), var(--dark-fg));
 }
 
 header, footer {
