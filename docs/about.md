@@ -2,7 +2,7 @@
 title: About Me
 ---
 
-### Professional
+## Professional
 
 I am a systems thinker. I alternate between working on deep problems and long-term problems, like developer momentum 
 (productivity), mentoring, and tools selection, where I have an excellent track record. I have formal training in
@@ -17,7 +17,14 @@ two published authors in the Kanban space. I can set up a full CI/CD pipeline an
 process exist, what it’s for, and why we should not take it out. This work and my Platform Engineering work were both
 substantial influences in my Developer Experience work.
 
-### Influences
+### Open Source
+
+I am the creator of [faceoff](https://github.com/cobblers-children/faceoff), a maintainer of 
+[node-config](https://github.com/node-config/node-config), and a frequent contributor to 
+[prom-client](https://github.com/siimon/prom-client) and 
+[bench-node](https://github.com/RafaelGSS/bench-node).
+
+## Influences
 
 For human factors, I had been trying to find my own way via online forums and conversations for a number of years
 already when Alan Cooper and Don Norman came onto my radar. They at least were my formal entree into the field.
@@ -32,7 +39,7 @@ For Software Engineering, I particularly appreciate the works of Kevlin Henney, 
 Beck, and a number of mentors I’ve had along the way, as well as many of the people I’ve in turned mentored. Teaching is
 a form of learning.
 
-### Personal
+## Personal
 
 I am rediscovering the importance and pleasure of Going Outside. I’ve spent an inordinate amount of time on
 Permaculture, which is at its heart Systems Thinking as applied to gardening. The banner picture is one I took a long
