@@ -74,6 +74,14 @@ nav {
   }
 
   &.mobile-nav, &.main-nav {
+    ul.social {
+      float: right;
+
+      li {
+        margin-right: 0;
+      }
+    }
+
     li {
       display: inline-block;
       margin-right: 1rem;
@@ -82,11 +90,6 @@ nav {
         a {
           color: white;
         }
-      }
-
-      &.social {
-        float: right;
-        margin-right: 0;
       }
     }
   }
