@@ -20,9 +20,8 @@ substantial influences in my Developer Experience work.
 ### Open Source
 
 I am the creator of [faceoff](https://github.com/cobblers-children/faceoff), a maintainer of 
-[node-config](https://github.com/node-config/node-config), and a frequent contributor to 
-[prom-client](https://github.com/siimon/prom-client) and 
-[bench-node](https://github.com/RafaelGSS/bench-node).
+[node-config](https://github.com/node-config/node-config), [bench-node](https://github.com/RafaelGSS/bench-node), and a frequent contributor to 
+[prom-client](https://github.com/siimon/prom-client).
 
 ## Influences
 
