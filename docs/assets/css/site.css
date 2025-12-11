@@ -57,8 +57,8 @@ h1 {
   grid-column-start: 2;
 
   ul {
-    padding-left: 1em;
-    text-indent: -1em;
+    padding-left: 0.66em;
+    text-indent: -0.66em;
   }
 }
 
@@ -99,6 +99,10 @@ nav {
       margin-left: auto;
     }
   }
+}
+
+.markdown-body {
+  padding: 0 1rem 0 1rem;
 }
 
 .markdown-body, .markdown-body .highlight {
