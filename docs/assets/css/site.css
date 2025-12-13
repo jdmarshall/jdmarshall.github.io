@@ -79,6 +79,11 @@ nav {
 
       li {
         margin-right: 0;
+        margin-left: 0.1rem;
+      }
+
+      .logo.github {
+        filter: invert(1);
       }
     }
 
@@ -193,6 +198,10 @@ div.header-image {
   a {
     color: hsl(214, 50%, 55%);
     font-weight: 500;
+  }
+
+  footer .logo.github {
+    filter: invert(1);
   }
 }
 
