@@ -21,6 +21,8 @@ body {
 }
 
 header {
+  border-radius: 0.8rem;
+  overflow: hidden;
   background-color: black;
 }
 
