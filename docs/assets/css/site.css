@@ -70,13 +70,13 @@ h1 {
 }
 
 nav {
-  font-size: 13px;
-
   ul {
     list-style-type: none;
   }
 
   &.mobile-nav, &.main-nav {
+    font-size: 1rem;
+
     ul.social {
       float: right;
 
