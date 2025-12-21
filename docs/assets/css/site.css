@@ -150,12 +150,16 @@ nav {
   }
 }
 
-.example img {
-  width: 275px;
-}
-
 .flexbox {
   display: flex;
+}
+
+img, .markdown-body img {
+  background-color: transparent;
+}
+
+.example img {
+  width: 275px;
 }
 
 img.logo {
