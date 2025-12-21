@@ -168,7 +168,7 @@ div.header-image {
   min-height: 80px;
   max-height: 200px;
   background-image: url(/assets/images/header.png);
-  background-position-x: right;
+  background-position-x: center;
   background-repeat: no-repeat;
 }
 
@@ -230,10 +230,7 @@ div.header-image {
   }
 }
 
-@media screen and (min-width: 1024px) {
-}
-
-@media screen and (min-width: 640px) and (max-width: 1024px) {
+@media screen and (max-width: 1024px) {
 }
 
 @media screen and (max-width: 640px) {
@@ -277,10 +274,6 @@ div.header-image {
     pre {
       max-width: 90vw;
     }
-  }
-
-  div.header-image {
-    background-position-x: center;
   }
 }
 
