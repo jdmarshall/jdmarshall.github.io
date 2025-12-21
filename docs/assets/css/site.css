@@ -1,7 +1,7 @@
 :root {
   color-scheme: light dark;
 
-  --light-bg: hsl(0, 0%, 95%);
+  --light-bg: hsl(0, 0%, 98%);
   --light-fg: hsl(210, 13%, 16%);
   --dark-bg: var(--light-fg);
   --dark-fg: hsl(0, 0%, 85%);
