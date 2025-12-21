@@ -1,13 +1,17 @@
 <ul>
   {% for p in site.data.navigation.main -%}
-    {% if p.show_on_mobile -%}
-    <li
-      {%- if p.link == '/' -%}
-        {%- if page.url == '/' %} class="current" aria-current="page" {% endif -%}
-      {% else -%}
-        {%- if page.url contains p.link %} class="current" aria-current="page" {% endif -%}
-      {% endif -%}
-    ><a href="{{ p.link | relative_url }}">{{ p.title }}</a></li>
+  <li
+    {%- if p.link == '/' -%}
+      {%- if page.url == '/' %} class="current" aria-current="page" {% endif -%}
+    {% else -%}
+      {%- if page.url contains p.link %} class="current" aria-current="page" {% endif -%}
     {% endif -%}
+  ><a href="{{ p.link | relative_url }}" title="{{p.title}}">
+    {% if p.abbreviated -%}
+      {{ p.abbreviated }}
+    {%- else -%}
+      {{ p.title }}
+    {%- endif -%}
+  </a></li>
   {% endfor -%}
 </ul>

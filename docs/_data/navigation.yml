@@ -9,12 +9,14 @@ main:
     link: /async
 
   - title: "Development"
+    abbreviated: "Dev"
     link: /development
 
   - title: "DX"
     link: /dx
 
   - title: "Performance"
+    abbreviated: "Perf"
     link: /perf
 
   - title: "Tools"
