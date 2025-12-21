@@ -159,7 +159,8 @@ nav {
 }
 
 img.logo {
-  height: 20px;
+  height: 22px;
+  padding: 1px;
 }
 
 div.header-image {
