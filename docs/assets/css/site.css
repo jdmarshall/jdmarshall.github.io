@@ -74,7 +74,7 @@ h1 {
 
 .content {
   grid-row-start: 2;
-  width: min(70vw, 720px);
+  width: min(70vw, 740px);
 }
 
 nav {
