@@ -9,87 +9,109 @@ published: false
 
 ## [Faceoff 1.1.0](https://github.com/cobblers-children/faceoff/)
 
-This is sort of a big milestone for me, because it contains most of the things I initially had in
-mind for this application. 
+I created [faceoff](https://github.com/cobblers-children/faceoff/) to fill the hole being left
+by the dormant [benchmark-regression](https://github.com/nowells/benchmark-regression) project.
 
-### Background: Why Are You Recreating a Tool?
+The 1.1.0 release fulfills most of the goals I set out to achieve, though there are a few new
+things I hope to land in the next month or two.
 
-Last Spring, I was fishing around for projects that were having either functionality or performance
-issues that I could dig into. I generally feel that Prometheus is a better model for gathering app
-telemetry than OpenTelemetry, but a brief scan of the 
-[prom-client](https://github.com/siimon/prom-client) code showed some pretty straightforward issues
-with the data storage format that I know how to improve, and conversations with other users
-uncovered a bunch more, so I started working on it.
+### Background
 
-The problem is that `prom-client` is semi-mature code. It's not getting a lot of active maintenance
-by the team. So my individual changes started piling up as parallel work. The other is that while
-`prom-client` has build tasks that can detect performance changes in the code, it uses a tool called
-[benchmark-regression](https://github.com/nowells/benchmark-regression), which hasn't been touched
-in seven years, has a lot of challenges with asynchronous benchmarks, and has no way to test 
-multiple branches of the same code against each other - it can test a release against your current
-branch and that's it. Oh and it's built on top of another library, `benchmark.js` that was declared
-End of Life by its author last winter. It also has issues with handling async code. So, not much
-hope there.
+Last Winter, I became involved in the [prom-client](https://github.com/siimon/prom-client) project.
+I did a lot of telemetry work at my last job, and while looking for ways to contribute back I 
+noticed that many of the open issues in their backlog were about performance and memory issues. 
+Things I know quite a bit about. So I started filing PRs to address some of these issues.
 
-When you're engaging in a rather enthusiastic campaign of optimizations like I was, I discovered
-very quickly that it was getting harder and harder to keep track of how branch A affects performance
-versus branch B which has now been merged and my branch is rebased on top of to resolve any 
-conflicts. Several times I had to backpedal and update my claimed performance changes. And now that
-I've had success getting improvements merged, some other people are trying to one-up me. Which is 
-great for `prom-client` but confusing for us because, again, they haven't tagged a release in some 
-time so the other people are getting my numbers and their numbers mixed together.
+prom-client's code base introduced me to 
+[benchmark-regression](https://github.com/nowells/benchmark-regression), which wraps 
+[benchmark.js](https://github.com/bestiejs/benchmark.js/), a tool I was quite familiar with, as it
+was instrumental in helping me break a performance log-jam that had existed for most of my tenure
+at my last job. With benchmark.js's help, I was able to make new feature development substantially
+cheaper and let my team to start making net improvements in response time, instead of constantly
+having our wins zeroed out by the next major initiative.
 
-Long story short, I wanted more data.
+I quickly discovered that benchmark.js had been end-of-lifed in Spring of '24, and that 
+benchmark-regression hasn't landed a PR in 7 years. They both essentially come from a time before
+async code and like many such libraries, they struggled to adapt.
+
+I didn't mean to write a replacement for these tools, but as helpful as benchmark-regression was,
+I was running into logistical issues working on prom-client. The problem is that `prom-client` is 
+semi-mature code. Mature code bases don't generally respond quickly to some new nutball filing 
+half a dozen PRs in as many weeks. And this experience was shining a pretty harsh spot-light on the
+areas where benchmark-regression was good, but probably not good enough.
+
+Even though they graciously accepted a number of them rather quickly, they weren't pumping out
+releases, and benchmark-regression really wants to compare your current branch to published releases
+of the same package. When you're engaging in a rather enthusiastic campaign of optimizations like I
+was, I discovered very quickly that it was getting harder and harder to keep track of how branch A 
+affects performance versus branch B which has now been merged and my branch is rebased on top of to
+resolve any conflicts. Several times I had to backpedal and update my claimed performance changes. 
+These are the same problems any two or three contributors would encounter in trying to file PRs
+in parallel, and it wasn't long before someone ran into just that problem.
 
 So I poked around for what other alternatives to `benchmark.js` there were and I stumbled upon 
 [bench-node](https://github.com/RafaelGSS/bench-node), which was still under active development
-but already supported async tests, had better charts for my purposes, and looked like it could be
-bent to fit the model I was using. I have now landed almost as many PRs on that project as I have
-on `prom-client`.
+but already supported async tests, and was created by someone established in the Node.js ecosystem.
+It already had much better charts for my purposes, and looked like it could be bent to fit the model
+I was using. 
 
 ## First Customer
 
-I designed [faceoff](https://github.com/cobblers-children/faceoff) to be a mostly drop-in 
-replacement for `benchmark-regression` and that has gone pretty well. A PR to use it for 
-`prom-client` was merged in the day before Thanksgiving. I have since released 1.0 and have been
-working on changes to support worker threads - changes that make me kind of wish I'd waited a little
-longer to release 1.0 because I needed to change the lifecycle a little bit. Oh well.
+I designed [faceoff](https://github.com/cobblers-children/faceoff) to run prom-client's existing
+regression tests with only minor changes. It is a nearly drop-in replacement for 
+`benchmark-regression`, and that has gone pretty well. A PR to use it for `prom-client` was merged
+in the day before Thanksgiving. It expands on `benchmark-regression` to support git urls for 
+version numbers, and focuses on three-way comparisons between your working directory, the project's
+trunk, and your current branch. 
 
-So the main improvement, besides being much faster (2.5 vs 8 minutes according to the prom-client
-team), is that it displays data like this, which I hope will be much more actionable:
+1.1 fixed a few issues with ESM modules, supports `bench-node`'s new t-test feature, narrows the 
+display a little bit more for readability in CI, and has some API changes to facilitate support for
+worker threads, which is still an experimental feature in `bench-node` and I am currently working
+to solidify. I hope to deliver that and faster t-test support in a 1.2 or 1.3 release.
+
+The output looks a little something like this:
 
 ```text
 Summary (vs. baseline):
- ⇒ prom-client@latest            | █████████████████████████ | 14,035,024 ops/sec | 12 samples (baseline)
- ⇒ prom-client@trunk             | ████████████████████───── | 11,428,570 ops/sec | 12 samples (1.23x slower)
- ⇒ prom-client@keys              | ███████████████████████▌─ | 13,316,166 ops/sec | 12 samples (1.05x slower)
+ ⇒ latest                    ▏█████████████████████████▕ 14,300,744 ops/sec | 13 samples (baseline)
+ ⇒ trunk                     ▏██████████████████████▌──▕ 12,946,295 ops/sec | 11 samples (1.10x slower)
+ ⇒ #perf/keys                ▏██████████████████████▌──▕ 12,965,191 ops/sec | 10 samples (1.10x slower)
 
 constructors ⇒ new Counter()
 
 Summary (vs. baseline):
- ⇒ prom-client@latest            | ████████████████████████▌ | 1,203,153 ops/sec | 11 samples (baseline)
- ⇒ prom-client@trunk             | █████████████████████████ | 1,203,335 ops/sec | 11 samples (1.00x faster)
- ⇒ prom-client@keys              | ████████████████████████▌ | 1,190,763 ops/sec | 13 samples (1.01x slower)
+ ⇒ latest                    ▏████████████████████████─▕ 1,137,460 ops/sec | 119 samples (baseline)
+ ⇒ trunk                     ▏████████████████████████▌▕ 1,153,108 ops/sec | 96 samples (1.01x faster)
+ ⇒ #perf/keys                ▏█████████████████████████▕ 1,170,779 ops/sec | 95 samples (1.03x faster)
 
 util ⇒ LabelMap.keyFrom()
 
 Summary (vs. baseline):
- ⇒ prom-client@trunk             | ███████████████████────── | 5,486,892 ops/sec | 10 samples (baseline)
- ⇒ prom-client@keys              | █████████████████████████ | 7,192,184 ops/sec | 11 samples (1.31x faster)
+ ⇒ trunk                     ▏█████████████████████████▕ 7,195,488 ops/sec | 13 samples (baseline)
+ ⇒ #perf/keys                ▏████████████████████████▌▕ 7,180,307 ops/sec | 11 samples (1.00x slower)
+
+
+Inconclusive Tests:
+------------------------
+
+constructors ⇒ new Counter()
+ ⇒ latest                    ▏████████████████████████─▕ 1,137,460 ops/sec | 119 samples (baseline)
+ ⇒ trunk                     ▏████████████████████████▌▕ 1,153,108 ops/sec | 96 samples (1.01x faster)
+ ⇒ #perf/keys                ▏█████████████████████████▕ 1,170,779 ops/sec | 95 samples (1.03x faster)
 
 
 Performance Regressions:
 ------------------------
 
 constructors ⇒ new Registry()
- ⇒ prom-client@latest            | █████████████████████████ | 15,173,658 ops/sec | 12 samples (baseline)
- ⇒ prom-client@trunk             | ███████████████████████── | 14,116,966 ops/sec | 10 samples (1.07x slower)
- ⇒ prom-client@keys              | ███████████████████████── | 14,081,520 ops/sec | 11 samples (1.08x slower)
+ ⇒ latest                    ▏█████████████████████████▕ 14,300,744 ops/sec | 13 samples (baseline)
+ ⇒ trunk                     ▏██████████████████████▌──▕ 12,946,295 ops/sec | 11 samples (1.10x slower)
+ ⇒ #perf/keys                ▏██████████████████████▌──▕ 12,965,191 ops/sec | 10 samples (1.10x slower)
+
 ```
 
 ## Next Steps
 
-I'm not actually sure where this goes from here, though I should probably look up any of the old 
-library's other dependencies and shop it around to them. See what features are missing. Meanwhile
-I'm continuing to work with the `bench-node` folks to improve the data display and hopefully maybe
-the accuracy as well. 
+As I mentioned above, most of the 1.2 feature set will be predicated on landing improvements to
+`bench-node`, making more use of the confidence intervals in both the output summary and in the
+results JSON file. 
