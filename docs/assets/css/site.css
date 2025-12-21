@@ -74,7 +74,7 @@ h1 {
 
 .content {
   grid-row-start: 2;
-  width: min(70vw, 750px);
+  width: min(70vw, 720px);
 }
 
 nav {
@@ -132,7 +132,6 @@ nav {
 
 .markdown-body, .markdown-body .highlight {
   pre {
-    max-width: min(750px, 70vw);
     overflow-x: scroll;
 
     border-radius: 0px;
