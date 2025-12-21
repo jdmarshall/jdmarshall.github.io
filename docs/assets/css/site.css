@@ -117,6 +117,9 @@ nav {
   }
 
   &.prev-next {
+    a.prev {
+      margin-right: 1rem;
+    }
     a.next {
       margin-left: auto;
     }
