@@ -1,5 +1,15 @@
 title: Jason Marshall's Blog
 description: Tech and Programming Blog
 author: Jason Marshall
+
+social:
+  name: Jason Marshall
+  links:
+    - https://www.github.com/jdmarshall
+
+image: ./assets/images/favicon.png
+
 plugins:
   - jekyll-feed
+
+
