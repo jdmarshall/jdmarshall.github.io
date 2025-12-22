@@ -138,12 +138,14 @@ nav {
       &:not([href=""]) {
         &.prev::before {
           content: "←";
-          margin-right: 0.25rem;
+          font-weight: 700;
+          margin-right: 0.2rem;
         }
 
         &.next::before {
           content: "→";
-          margin-left: 0.25rem;
+          font-weight: 700;
+          margin-left: 0.2rem;
           display: block;
           float: right;
         }
