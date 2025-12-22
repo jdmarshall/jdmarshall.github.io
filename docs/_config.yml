@@ -1,5 +1,6 @@
 title: Jason Marshall's Blog
-description: Tech and Programming Blog
+tagline: Tech and Programming Blog
+description: Thoughts about Software Development, Tooling, Processes, and Performance
 author: Jason Marshall
 
 social:
@@ -18,4 +19,6 @@ defaults:
       image:
         path: /assets/images/og.png
         alt: Blog logo
+        width: 128
+        height: 128
 
