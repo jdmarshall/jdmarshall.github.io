@@ -77,9 +77,13 @@ h1 {
   }
 }
 
+.container-lg {
+  max-width: 1056px;
+}
+
 .content {
   grid-row-start: 2;
-  width: min(72vw, 750px);
+  width: min(72vw, 780px);
 }
 
 nav {
