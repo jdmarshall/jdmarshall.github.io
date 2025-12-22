@@ -19,9 +19,5 @@ main:
     abbreviated: "Perf"
     link: /perf
 
-  - title: "SDLC"
-    alt: "Software Development Lifecycle"
-    link: /lifecycle
-
   - title: "Tools"
     link: /tools
