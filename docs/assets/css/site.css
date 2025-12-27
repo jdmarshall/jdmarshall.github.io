@@ -191,9 +191,9 @@ img.logo {
 }
 
 div.header-image {
-  height: min(16vh, 16vw);
+  height: min(10vh, 10vw);
   min-height: 80px;
-  max-height: 200px;
+  max-height: 160px;
   background-image: url(/assets/images/header.png);
   background-position-x: center;
   background-repeat: no-repeat;
