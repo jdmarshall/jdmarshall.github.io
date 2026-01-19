@@ -1,0 +1,165 @@
+---
+layout: post
+title: "The Long Road to ESM"
+topics: [ Development, DX ]
+published: false
+---
+
+Almost a year ago, I signed on as a maintainer for the `node-config` project. This is a tool meant
+to organize all of the configuration for an entire process into one place where you can get a clear
+gestalt of the state of the app, and thus reason about unexpected behaviors during a build or at
+deployment time. 
+
+There has been an unmet need on this project for ESM support for a number of years now, but the 
+implementation details of the project have resisted refactoring and migration up to this point. I
+will get into that a bit in the next section.
+
+Since this was my first maintainership, one of the first things I learned is a lesson I also learned
+at my first job out of college - my tolerance for slow or bad code is very different when my name is
+on the product versus when I'm just using it. I spent a lot of time over the subsequent months 
+burning through the backlog, filing and landing PRs to clean up the code and extract a Functional 
+Core from the code, and creating an isolated state tree from the Singleton which the Singleton 
+exposes in the old way through delegation. 
+
+I'd already been submitting some meaningful PRs to this project for a while at this point. When I
+started on my last team, the first task I was given was to replace our in house reloadable config
+system with something more resilient and responsive, and the suggestion was to use `node-config` and
+Consul to do this - the build-time state being provided by `node-config`, and the the run-time 
+changes being fetched out of consul as soon as possible (and far sooner than the slow polling of
+the old solution). It was a very large project, already nearing middle age and needing to benefit
+from lessons learned. Which lead to its own lessons learned. When you've got more than 100 modules
+using a set of tools like this, you find a lot of corner cases. 
+
+A coworker had run into some of these and written a fairly elaborate and unfortunately slow and 
+buggy wrapper around `node-config` to make it deal with the fact that our internal dependencies 
+had internal dependencies. His solution was excellent as scaffolding but needed to go, and 
+eventually I had to land a couple of PRs against `node-config` to fix some of the reentrancy 
+problems at the source instead of trying to avoid them with CPU- and memory-intensive workarounds.
+This year I also fixed the last workaround that code had needed, which is the ability to use 
+`node-config` to load a config directory for one module and inject it into the shared config via 
+`setModuleDefaults()`, which itself had about three bugs that still needed some love.
+
+## My Nemesis, the Singleton
+
+The Singleton Pattern is notoriously bad for testing. What every other Design Pattern does to 
+improve composition and unit testing, the Singleton undoes in one killing stroke. It creates global
+shared state that is resistant to priming for tests, and is, in my opinion, substantially 
+responsible for leading an entire generation of developers to the Testing Icecream Cone instead of
+the Testing Pyramid. It is exhausting getting unit tests out of code that is based off of 
+Singletons. And by that I don't mean, "I find it exhausting." I watch other people wear themselves
+out trying to work on this sort of stuff. Some of them are self-aware, some are not, and some are
+in denial. This is Fine. But better people have described the ills of Singletons. Suffice it to say
+here that I dislike them very strongly and for all of the reasons those people would tell you. They
+suck.
+
+So of course the first GitHub project I'm the maintainer of is a Singleton.
+
+One of the tenets of node-config is that the configuration is static. The difference between shared,
+mutable state and shared, immutable state is lost on some people. The main problem with shared 
+state is that it can change on you and create side effects elsewhere. The creator of `node-config`
+and I are on the same page here. You don't need another repository of shared state. We have many
+of those off the shelf already.
+
+So `node-config` is a Singleton. You import (well, require()) it and ask it questions, getting the
+same answers everyone else does. That's fine, and it's easy enough to mock it in your own unit tests,
+especially if you add a layer of indirection, like I did, to allow reloadable config. Of course
+writing tests for `node-config` is a bit of a headache, as such things always are. But using it is
+pretty decent.
+
+Or at least it was until other features were added to the tool, and now it has a habit of letting
+itself be called while it's still initializing, to facilitate decisions made at startup, such as
+concurrency, or string interpolation based on environment (eg, poor man's service discovery). Then
+there are problems because the state is still shifting, and more importantly to this discussion, 
+there are parts of this lifecycle where ESM has strong opinions and those opinions boil down to:
+Don't Do That. 
+
+So if my count is correct I'm at least the third person to try to port this library to ESM, and 
+the fourth to attempt to successfully extract the utility functions so that they can be used
+as utility code instead of a Singleton. And if I'm being honest, the version that landed was
+my third attempt at doing so. There's a lot of sticky self-references in the startup code and those
+often require backing away and coming at the problem again to sort out. And in the mean time people
+had successfully submitted more PRs that made the problem even bigger. 
+
+## Build Time, Deploy Time, Run Time, Request Time
+
+I've successfully used the concept of these four categories to reduce the cognitive load of some 
+pretty big code bases, including the one I mentioned in the previous section. And every indication
+is that this works for much larger code bases than the ones I've had the privilege to work on.
+
+Decisions made at each interaction have an exponentially larger surface area for testing, are 
+difficult for others to reproduce when triaging bugs, and are by and large the worst part of 
+production outages. There's too much information to filter and too many ways the data can change. If
+your project has manual validation steps as part of deployment (or a full QA team), it is quite
+likely that their domain is looking for bugs in the request-time variables.
+
+At the other end of the spectrum, we have hard coded values that are determined at build time (or
+really, when the code is merged). You, me, and the intern all get the same answer every time we run
+this code because it cannot change. These are the best bits of code to test in CI. They are 
+unambiguous, and when they change there is a clear smoking gun in the git history. And I maintain
+that if you do not understand the power of `git bisect` you may underestimate the value of 
+build-time decisions with respect to diagnosing the more difficult sorts of production issues.
+
+In between, people will tend to make decisions at startup, figuring that is the only middle ground
+between fully deterministic and anarchy. And while it's true that that is the space it lives in,
+there are also decisions that can be made at deployment time. Things that might appear in your 
+Terraform or some 12-Factor configuration and are finalized at run time but will always be identical
+across all runs of that same deployment (eg, across restarts and auto-scaling). In particular the
+notion that auto-scaling and auto-restarts will never get a different answer today than yesterday 
+when the application was first deployed is very important to correct running of the application and 
+to the team's sanity. These are also often in the realm of problems that can be solved by a 
+rollback.
+
+So I like `node-config` because it can be gently nudged into supporting three of these four states,
+and the last is so ambiguous that I doubt anyone has figured out the idiomatic solution to those 
+problems yet. Maybe someone will someday, but we don't work in someday. So `node-config` solves the
+problems that are known to be solvable.
+
+...except for ESM support.
+
+## Unblocking Progress
+
+Looking at my IDE and git history, I started trying to solve this problem back at the end of July.
+One of the biggest roadblocks was `requireUncached`, which made migrating the tests a nightmare.
+I've since converted about half the functional tests to unit tests on the 'util' code, which made
+this smaller. But I had some more learning I needed to do on composing ESM and CJS modules in a
+single runtime.
+
+I have plenty of work experience with loading ESM modules from CJS projects, I have less experience
+with the reverse and unfortunately with `node-config` what you have is ESM->CJS->ESM or CJS->ESM-CJS
+and while the Node maintainers have been doing excellent work over the last couple of years to make
+this as painless as possible, there are problems they've solved at one degree of separation that
+simply don't work at 2, or 3. And the foremost among those is importing a module that is already
+being imported. Which is what happens for many of our users when you have executable code in your
+/config directory.
+
+One of the big problems is that `require()` allows you to `require()` modules that are still being
+initialized, as long as you're careful about how you use them. This allows for circular dependencies 
+between modules. Which `node-config` managed to turn into note one, not two, but four features. One
+of my strengths as a library writer is that I can and will take away features, if it improves the
+code quality, the DX, or provides a net increase in functionality. But only once I've provided 
+feature parity in some other, reasonable way. Usually with fewer footguns.
+
+What is mostly at issue in this instance is that people wanted a way to have configuration values 
+that were interpolated from other values that might have been overridden for a particular machine or
+deployment. So there's a file called `defer.js` that has a functor that can replace a property 
+with a function that depends on other config values, which are then resolved in a tree at the end of
+the load phase, after all of the config files have been loaded. There's also `async.js` that 
+pre-dates broad use of async-await and allows you to make a non-blocking request and then 
+incorporate that answer into the configuration at run time. As I've hinted at above, this is not my 
+favorite feature but there are other uses of this feature that have merit, and it's in there so who
+am I to take it away. (Although apparently I am doing it anyway, by making `defer.js` handle async
+functions.)
+
+There's been a story in the backlog for years now from a user who got stuck trying to use `defer.js`
+with esbuild. It didn't like it, for the same reason `import` doesn't like it. It finally dawned
+on me the other day that this feature can only be used for config files that are Turing complete, 
+and if it's Turing complete you can call functions in it. So in added a feature in 4.3 that allows
+these files to export a callback function instead of using imperative code to look up the functions,
+and then deprecated the old entry points. This also has the added advantage of being able to add
+other utilities or rearrange them without breaking existing code in the future. Not that I'm 
+anticipating new features, but being able to rearrange old ones would be desirable, especially for 
+the ESM migration, and testing purposes.
+
+And that turned out to be about 90% of the remaining work needed. The only other thing besides 
+fixing up the tests is Typescript support, but there are now facilities in NodeJS to run TS files 
+directly, and I hope we can migrate out of that in the future.
