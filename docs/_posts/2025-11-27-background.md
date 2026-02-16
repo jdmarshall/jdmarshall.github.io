@@ -4,6 +4,11 @@ title: "Background: Making the Most of Async in Node.js"
 topics: [ Async, Concurrency, Development, Performance ]
 ---
 
+[Author's Note: This thread is about Javascript, but the principles are not about Javascript. I used
+Promises before Javascript had them, and I will use async/await long after. There's a lot to
+cherry-pick here if your language has fibers, or infinite parallelism will lead to immediate
+resource exhaustion. It's just couched in the language I've spent the most time in recently.]
+
 If you're trying to get a lot of unrelated tasks done in Node.js or similar languages, the normal
 way to write async code is often close enough to best case that most people don't bother doing more
 than a little bit of tuning. But as the workload increases, and particularly if you are attempting
