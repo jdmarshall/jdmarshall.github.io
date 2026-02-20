@@ -23,14 +23,14 @@ bite you in the ass. It's a lifestyle choice, and you have to keep at it, but if
 you'll injure yourself in the process. Take it easy. A little bit is a lot better than none at all.
 Baby steps.
 
-What We Know
+## What We Know
 
 This is what we know. And when I say 'know', I don't mean truthiness. I mean that these are the
 things we believe we have measured empirically, and repeated with different groups of people, in a
 handful of programming languages. Irritatingly, some of these things were known back when XP was a
 new thing, but too few of us listened. Sorry Kent, we let you down.
 
-Small and Fast
+### Small and Fast
 
 Tiny tests are the only tests that are fast. You need an awful lot of them to say anything, but in
 the Grand Scheme of things, this is chump change. The run time of the small tests grows much more
@@ -47,7 +47,7 @@ fixing tests right away, and most of the time can estimate how much longer it wi
 tests. X tests were broken, Y tests still aren't passing, so it will hopefully take 2 more hours to
 fix the tests.
 
-Big and Slow
+### Big and Slow
 
 Big tests start out slow, but you have so few of them that this doesn't phase you. It doesn't
 register that when you multiply the run time by 400 you'll have a problem, because it'll take you a

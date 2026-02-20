@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "The Curse of Knowledge"
-topics: [ Development, DX ]
+topics: [ Development, DX, Growth ]
 published: false
 ---
 

@@ -6,7 +6,7 @@ excerpt: "Nobody knows how much time they have"
 ---
 
 Yesterday my dog turned 3 1/2 years old. This morning I took him for what is probably his last walk.
-He’s slipping away and there may be none tomorrow.
+He’s slipping away and there may be no tomorrow.
 
 For three years our Saturday walks were a cornerstone of my physical and mental fitness routine.
 Every Saturday morning he would bug me to get out of bed and take him on our two mile walk. When he

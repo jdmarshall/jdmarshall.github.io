@@ -17,6 +17,24 @@ two published authors in the Kanban space. I can set up a full CI/CD pipeline an
 process exist, what it’s for, and why we should not take it out. This work and my Platform Engineering work were both
 substantial influences in my Developer Experience work.
 
+### Writing
+
+Much of how I think is contained in my posts about [Development](/development) and [DX](/dx).
+
+But some of my writing delves into how I learned to learn. Here are a few:
+
+<nav>
+  {% for post in site.posts %}
+    {% if post.topics contains "Growth" %}  
+      <dl>
+        <dt><a href="{{ post.url }}">{{ post.title }}</a></dt>
+        <dd>{{post.excerpt}}</dd>
+      </dl>
+    {% endif %}
+  {% endfor %}
+</nav>
+
+
 ### Open Source
 
 I am the creator of [faceoff](https://github.com/cobblers-children/faceoff), a maintainer of 
