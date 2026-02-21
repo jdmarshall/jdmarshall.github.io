@@ -23,17 +23,18 @@ Much of how I think is contained in my posts about [Development](/development) a
 
 But some of my writing delves into how I learned to learn. Here are a few:
 
-<nav>
-  {% for post in site.posts %}
-    {% if post.topics contains "Growth" %}  
-      <dl>
-        <dt><a href="{{ post.url }}">{{ post.title }}</a></dt>
-        <dd>{{post.excerpt}}</dd>
-      </dl>
-    {% endif %}
-  {% endfor %}
-</nav>
-
+<ul>
+  <ul>
+    <ul>
+      {% for post in site.posts %}
+        {% if post.topics contains "Growth" %}
+          <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+       {% endif %}
+      {% endfor %}
+    </ul>
+  </ul>
+</ul>
+<br>
 
 ### Open Source
 

@@ -154,6 +154,10 @@ nav {
   }
 }
 
+ul ul {
+  padding-left: 1em;
+}
+
 .markdown-body {
   padding: 0 1rem 0 1rem;
 }
