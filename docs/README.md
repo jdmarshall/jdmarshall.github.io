@@ -1,5 +1,5 @@
-Seasoned Software Engineer with gobs of experience and life lessons in Software Development
-Lifecycle, UX, DX, and performance optimization.
+Seasoned Software Engineer with some thoughts on the Software Development Lifecycle, reliability, 
+UX, DX, and performance optimization.
 
 I believe that better tools lead to better software. 
 
