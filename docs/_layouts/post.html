@@ -6,12 +6,12 @@ layout: default
   {{ content }}
 </section>
 
-<section class="py-2">
+<section class="py-3">
   {% if page.topics -%}
     Posted in {{ page.topics | join: ", " }}
   {% endif -%}
 </section>
 
-<section class="pt-2">
+<section>
   {%- include prev_next.html -%}
 </section>
