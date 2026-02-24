@@ -4,20 +4,26 @@ main:
 
   - title: "About"
     link: /about
+    topic: "Growth"
 
   - title: "Async"
     link: /async
+    topic: "Async"
 
   - title: "Development"
     abbreviated: "Dev"
     link: /development
+    topic: "Development"
 
   - title: "DX"
     link: /dx
+    topic: "DX"
 
   - title: "Performance"
     abbreviated: "Perf"
     link: /perf
+    topic: "Performance"
 
   - title: "Tools"
     link: /tools
+    topic: "Tools"

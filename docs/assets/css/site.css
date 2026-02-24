@@ -209,6 +209,10 @@ div.header-image {
   }
 }
 
+span.topic ~ span.topic::before {
+  content: ', ';
+}
+
 .screenshot img {
   width: 250px;
 }

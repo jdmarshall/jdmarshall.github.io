@@ -8,8 +8,13 @@ layout: default
 
 <section class="py-3">
   {% if page.topics -%}
-    Posted in {{ page.topics | join: ", " }}
-  {% endif -%}
+    Posted in
+    {% for p in site.data.navigation.main -%}
+      {%- if page.topics contains p.topic -%}
+        <span class="topic"><a href="{{ p.link | relative_url }}" title="{{p.title}}">{{ p.topic }}</a></span>
+      {%- endif -%}
+    {%- endfor -%}
+  {%- endif -%}
 </section>
 
 <section>
