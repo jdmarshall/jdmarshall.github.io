@@ -25,14 +25,25 @@
   {%- include anchor_links.html -%}
 
   <script>
-  {%- comment -%}
-  // This function is called when the user selects an option from a <select> element.
-  // If the selected option has a valid URL, it changes the window location to that URL.
-  {%- endcomment %}
-  const navigateToUrl = (select) => {
-    const url = select.value;
-    url && (window.location.href = url);
-  };
+    {%- comment -%}
+    // This function is called when the user selects an option from a <select> element.
+    // If the selected option has a valid URL, it changes the window location to that URL.
+    {%- endcomment %}
+    const navigateToUrl = (select) => {
+      const url = select.value;
+      url && (window.location.href = url);
+    };
+
+    console.info(
+        '%cWelcome!',
+        'color: blue; font-size: 20px; font-weight: bold;'
+    );
+
+    console.info();
+    console.info("If you're looking for CSS tricks, I don't exhibit many here, but you're welcome to look.");
+    console.info();
+    console.info("If you're reviewing my resume and looking for clues on how I tick, please visit https://jdmarshall.github.io/website.html");
+
   </script>
 </body>
 </html>

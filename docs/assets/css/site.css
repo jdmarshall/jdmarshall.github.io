@@ -77,6 +77,12 @@ h1 {
   }
 }
 
+.content {
+  ul, ol {
+    padding-left: 1rem;
+  }
+}
+
 .container-lg {
   max-width: 1056px;
 }
