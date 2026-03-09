@@ -1,6 +1,7 @@
 Much of my recent full stack work has been focused either on backend or leadership and so I have 
 been spotty about taking examples from my work to create a portfolio. While I have some HCI focus,
-I have sublimated a lot of that energy into SDLC process improvement, devops, and [tooling](/tools).
+I have in recent times invested most of that energy into SDLC process improvement, devops, and
+[tooling](/tools).
 
 This site is mostly about my writing, but I have taken a bit of effort to knock the cobwebs off
 and fiddle around with CSS here.
