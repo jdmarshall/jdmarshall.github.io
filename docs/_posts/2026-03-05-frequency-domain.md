@@ -5,9 +5,10 @@ topics: [ Development, DX, Growth ]
 excerpt: "Users have a very different perception of problems than what we see in our dashboards."
 ---
 
-    The customers with the slowest requests are often those who have the most data on their 
-    accounts, because they have made many purchases. That is: they're the most valuable customers.
-    It's important to keep those customers happy, by ensuring the website is fast for them.
+    The customers with the slowest requests are often those who have the most data on
+    their accounts, because they have made many purchases. That is: they're the most
+    valuable customers. It's important to keep those customers happy, by ensuring the 
+    website is fast for them.
     
     -- Designing Data-Intensive Applications
 
