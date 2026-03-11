@@ -4,19 +4,31 @@ title: About Me
 
 ## Professional
 
+Most of my career so far was spent working in Seattle, usually on web applications. Unusual 
+circumstances lead to my first specialization being in optimization, but I have worked my way up
+to bus number or Subject Matter Expert in a number of domains including, in mostly chronological
+order: http internals, internationalization, compression, CI/CD, test automation, security (auth, 
+code signing), UX, DX, reloadable configuration, and telemetry. And somewhere in the middle there, 
+I became a VXWorks administrator. Because ours was always busy. 
+
+I have a fairly easy time learning new things, so I often find myself doing tech selection and 
+backstopping skill gaps on projects.
+
+### Philosophy
+
 As a Software Engineer, my job boils down to finding repetitive, slow, tedious, and sometimes 
 confusing tasks and translating them into code. Code never gets tired, and always avoids the same 
-mistakes. When I think of developers 'Working Smarter, not Harder', I mostly picture developers
+mistakes. When I think of developers 'Working Smarter, not Harder', I often picture developers
 applying these same skills to their own tasks, their own problems. And when I think of projects
 grinding to a halt over time, seeing mean time to bugfix creeping up and up, month after month, I 
 mostly picture developers who are unable, or unwilling, to [sharpen their saws](https://www.franklincovey.com/courses/the-7-habits/habit-7/).
 
 ### Writing
 
-I've had many rewarding experiences working with progressive managers who understand this set of
-problems. Some of my writing here are informed by those conversations and interactions, and some of
-my writing is transcription of my feedback to them, to peers, and to other software leaders in my
-conversations and interactions with them.
+I've had many rewarding experiences working with progressive managers and coworkers who understand 
+many of the sorts of problems I care about. Some of my writing here are informed by those 
+conversations and interactions, and some of my writing is transcription of my feedback to them, to
+peers, and to other software leaders. Some is things I only sorted out later on.
 
 I have done extensive work in team building, and the Software Development Lifecycle, including 
 studying under and working closely with two published authors in the Kanban space. 
@@ -40,9 +52,9 @@ But some of my writing delves into how I learned to learn. Here are a few:
 
 ### Open Source
 
-I am the creator of [faceoff](https://github.com/cobblers-children/faceoff), a maintainer of 
-[node-config](https://github.com/node-config/node-config), [bench-node](https://github.com/RafaelGSS/bench-node), and a frequent contributor to 
-[prom-client](https://github.com/siimon/prom-client).
+I am a maintainer on [node-config](https://github.com/node-config/node-config) and [bench-node](https://github.com/RafaelGSS/bench-node). I frequently contributor to 
+[prom-client](https://github.com/siimon/prom-client), and I made a tool for finding performance regressions in Node.js code,
+called [faceoff](https://github.com/cobblers-children/faceoff).
 
 ### Influences
 
