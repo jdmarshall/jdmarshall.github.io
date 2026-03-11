@@ -180,6 +180,14 @@ ul ul {
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
   }
+
+  img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 70%;
+    max-width: 84%;
+  }
 }
 
 .flexbox {
