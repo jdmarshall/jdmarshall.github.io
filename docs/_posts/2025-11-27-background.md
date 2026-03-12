@@ -2,6 +2,7 @@
 layout: post
 title: "Background: Making the Most of Async in Node.js"
 topics: [ Async, Concurrency, Development, Performance ]
+excerpt: "Theories and Principles of extracting parallelism from Node.js"
 ---
 
 [Author's Note: This thread is about Javascript, but the principles are not about Javascript. I used
