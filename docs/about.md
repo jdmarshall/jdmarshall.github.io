@@ -4,15 +4,18 @@ title: About Me
 
 ## Professional
 
-Most of my career so far was spent working in Seattle, usually on web applications. Unusual 
-circumstances lead to my first specialization being in optimization, but I have worked my way up
-to bus number or Subject Matter Expert in a number of domains including, in mostly chronological
-order: http internals, internationalization, compression, CI/CD, test automation, security (auth, 
-code signing), UX, DX, reloadable configuration, and telemetry. And somewhere in the middle there, 
-I became a VXWorks administrator. Because ours was always busy. 
+Most of my career so far was spent working in Seattle, usually on web applications. I am not so
+much a generalist programmer as a serial specialist. I have a fairly easy time learning new things
+to a journeyman skill level, so I often find myself doing tech selection and backstopping skill
+gaps on projects. That same skill also has me as a frequent liaison with the Project Owner or the
+customer, because lack of domain knowledge results in rework when the customer sees what they have
+paid for and realizes they cannot use it, because we have misunderstood *their* work.
 
-I have a fairly easy time learning new things, so I often find myself doing tech selection and 
-backstopping skill gaps on projects.
+I have worked my way up to bus number or Subject Matter Expert in a number of domains including,
+in mostly chronological order: [performance optimization](/perf), http internals,
+internationalization, compression, CI/CD, test automation, security (auth, code signing),
+UX, [DX](dx), reloadable configuration, and telemetry. And somewhere in the middle there, I briefly
+became a VXWorks administrator.
 
 ### Philosophy
 
@@ -21,7 +24,8 @@ confusing tasks and translating them into code. Code never gets tired, and alway
 mistakes. When I think of developers 'Working Smarter, not Harder', I often picture developers
 applying these same skills to their own tasks, their own problems. And when I think of projects
 grinding to a halt over time, seeing mean time to bugfix creeping up and up, month after month, I 
-mostly picture developers who are unable, or unwilling, to [sharpen their saws](https://www.franklincovey.com/courses/the-7-habits/habit-7/).
+mostly picture developers who are unable, or unwilling, to 
+[sharpen their saws](https://www.franklincovey.com/courses/the-7-habits/habit-7/).
 
 ### Writing
 
