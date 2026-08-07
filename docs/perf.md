@@ -7,11 +7,11 @@ early, we would see who could make theirs faster or take in larger inputs withou
 my first job after college had embarrassingly slow code, I parlayed that into my first 
 specialization.
 
-Most people can tell you of mechanical sympathy, and while I have more than most, I could fill half
-a book on the logistics of performance tuning. That is its own art and the reason many balk at
-tackling known complaints about application performance. They *won't* try because they don't know
-how to manage these concerns in a way that will retain the other invariants on the project, like
-lead time, SLAs, and bug counts.
+If I were to co-author a book, the most likely topic would be performance. And my half of the
+contribution would be less about mechanical sympathy, and more about the craft and logistics of
+performance work. That is its own art and the reason many balk at tackling known complaints about
+application performance. They *won't* try because they don't know how to manage these concerns in a
+way that will retain the other invariants on the project, like lead time, SLAs, and bug counts.
 
 How do you identify and undertake a series of intricate architectural shifts in order to deliver
 substantial gains in performance while retaining or reducing maintenance costs on that same code?
