@@ -56,9 +56,8 @@ But some of my writing delves into how I learned to learn. Here are a few:
 
 ### Open Source
 
-I am a maintainer on [node-config](https://github.com/node-config/node-config) and [bench-node](https://github.com/RafaelGSS/bench-node). I frequently contributor to 
-[prom-client](https://github.com/siimon/prom-client), and I made a tool for finding performance regressions in Node.js code,
-called [faceoff](https://github.com/cobblers-children/faceoff).
+I am a maintainer on [node-config](https://github.com/node-config/node-config) and [bench-node](https://github.com/RafaelGSS/bench-node). [prom-client](https://github.com/siimon/prom-client), and I wrote a 
+tool for finding performance regressions in Node.js code, called [faceoff](https://github.com/cobblers-children/faceoff).
 
 ### Influences
 
