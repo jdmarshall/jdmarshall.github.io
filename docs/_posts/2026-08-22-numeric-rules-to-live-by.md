@@ -13,20 +13,21 @@ published: false
 As a professional, you develop a lot of rules of thumb to help you decide how to focus your
 attention. In a leadership position, you need even more. Some of those are about numbers. I first
 had this idea of writing an article about rules of thumb with numbers in them three jobs ago, but I
-am finally writing it down now because I realized I've changed by mind about one or two. And also
-I've found that one or two more snuck onto the list. I'm hoping to later include links that break
-out some of these to their own article. A couple of them tried to get away from me here.
+am finally writing it down now because I realized I've changed by mind about one or two - it's not
+enough to have a rule, you need to understand when it works and when it doesn't. Additionally, as 
+I was thinking again about this over the last couple weeks, I discovered that one or two more had
+snuck onto the list. I'm hoping to later include links that break out some of these to their own
+article. A couple of them tried to get away from me here.
 
-These are here presented here in ascending order by cardinality which is perhaps not the best order,
-but it is **an** order.
+With minor exceptions, these rules are here presented in ascending order by cardinality which is 
+perhaps not the best order, but it is **an** order.
 
 ### To Finish a Meeting in One Hour, You Must Finish Half the Meeting in a Half Hour
 
-Good artists borrow, great artists steal. I stole this one from one from a boss early in my career.
+Good artists borrow, great artists steal. I stole this one from a boss early in my career.
 
-I have however later refined this for large meetings, with the help of a peer who was a veteran. I 
-have a special place in my heart for people with a low tolerance for bullshit, and most of the vets
-I know have a particular sense of humor about how they reject it.
+I have however later refined this for large meetings, with the help of a peer, to include a 
+meta-conversation about the agenda, so that the most people get the most out of the meeting.
 
 For large or nearly staff-level meetings, you also want half the team to be able to tune out or
 just leave to go back to working on tasks that are at risk. You need an agenda for these meetings,
@@ -158,9 +159,12 @@ water comes out of the tap. If they don't ask for your signature immediately aft
 test, then it's because something went horribly wrong. So I check my materials. I check the
 connections, then I check the End to End as a sanity check on everything else I've touched.
 
+### Six Reports is Enough for Anyone
+
+There is a real danger in managers not having enough to do 
 ### Each Testing Tier is Eight Times Faster Than the One Above
 
-So why would you make more tests for yourself if one would do? Well the answer is that in most 
+Why would you make more tests for yourself if one would do? Well the answer is that in most 
 well-designed or at least well-intentioned test frameworks, any test at one tier runs around 8
 times faster than on the next tier. Back in the JUnit days, this number was closer to 10, but
 across several other languages and many years, I've found 8 to be more accurate.
@@ -174,3 +178,34 @@ ignore problems until they cross a threshold. Anything you do to reduce the slop
 permanently, buys you more time in the future to think about either other technical debt or work
 that will increase your Monthly Reccuring Revenue. You make the project better instead of just more
 tolerable.
+
+
+### If More Than 10% of the Code is 'Mine', That's Not Leadership, That's Control
+
+This could have just as easily been at the top of the list as a 1/10th rule, but I feel this is 
+a better parting thought than an opening one, so here it is at the end. 
+
+There are parts of the code that have to work right the first time. There are parts of the code that
+have to work right *every* time. That is where the critical parts of your architecture live, the
+10% of the code where 90% of the worst problems are likely to happen. Your technical leadership 
+should be concerning themselves with those parts **and only those parts**. If you're having to
+swoop in all over the code base, you have poor separation of concerns, or you have control issues
+that you need to talk to a therapist about.
+
+The team cannot grow while you're carrying them your shoulders. They need to fly off to do their 
+own things. You may not actually be saying 'no touchy!' out loud but any file where all the most
+recent edits are yours will communicate that all on its own. The same way if you put dishes next
+to your neurotic friend's sink and they feel the urge to immediately rearrange them, you know that
+they think you 'did it wrong' and they're always going to correct you. Ain't nobody got time for
+that.
+
+I know a piece of code is done with me when other developers feel empowered to add features to it,
+and they implement the feature in the same spot I would have. I have made this code sufficiently
+self-explanatory than I can unclench and either let other people own it now, or declare that module
+'done' and back-burner it. 
+
+That letting go is necessary for a project to grow. Usually by the time I experience this, I've
+already been fretting about where we are going to find the time and energy to deal with three other
+problem areas we need to tackle next and I need the capacity freed up by letting it go. It's like
+living in a small apartment. Every time I want to bring something in, I need to let something go,
+or live in clutter all my days, constantly tripping over things I probably shouldn't still own.
