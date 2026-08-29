@@ -61,7 +61,28 @@ recorded in the documentation. Everything below it should be pure, so that the c
 understanding the code is more proportional to the logarithm of the number of lines in the program
 rather than the square root, or worse, quadratic, or worst of all, factorial.
 
-### TODO: Other one I have now spaced on. 
+### Conceptual Integrity
+
+This comes to us from Fred Brooks, who insists that, "The design must come from one mind", but 
+there's another version of this idea that I prefer - the design doesn't have to come from one mind,
+but it must *fit* into one, or else we are lost.
+
+A peer of mine took a partial sabbatical to get a Masters Degree from Rensselaer Polytechnic
+Institute. It was a sort of Business degree for Information Technology, complete with case studies.
+That part in particular made me a little jealous, because I think we could all use formal coursework
+in both case studies and code critique (Comparative Literature, but for software). 
+
+One day he shared with me that the class taught that the surest predictor of success or failure on
+a software project was whether at least one employee could fit the entire project into their head.
+
+You can achieve this in one of two ways: either hire someone with a massive brain, or keep the 
+system complexity under control. As with most professions, it is the balance of skill *and* 
+discipline that matters. A genius can fit a fairly large system into their head, yet may still
+choose to push back on complexity in order to reason more deeply about what we have and where we 
+would like to take things in the future, and to be less of a bottleneck to the rest of the team. 
+Discipline means that other members can also fit most of the application into their heads, making
+some decisions obvious rather than pre-empting the One Person to negotiate. Anything you feel you
+can safely leave until the code review is essentially optimistic locking. 
 
 ### You Haven't Proven You Can Do Something Until You've Done it Twice
 
@@ -118,6 +139,16 @@ the primary, and either you or #3 become the secondary, and if and when you do p
 the new primary becomes responsible for training your replacement, while any gaps in  their
 knowledge can still be filled from yours before it atrophies from disuse. 
 
+### Conditional Branching Depth
+
+Cognitive Scientists have determined that the average developer can handle conditional branches that
+are 3 deep, and above average developers can handle 4. We avoid this by breaking complex decisions
+into multiple steps, giving those decisions meaningful names. We have functions that are only called
+when certain preconditions are met, so they can be taken as assumed. 
+
+and occasionally rejecting features as
+being too complex to maintain.
+
 ### Four Questions Equal a Design Flaw
 
 People get angry with you about your code. They're not always right. They don't understand the three
@@ -139,7 +170,7 @@ They know something is wrong, they just don't know what or how to fix it. But if
 with yourself, you know exactly what is wrong. Some of my most popular API improvements have come
 from trying to make sure I didn't get asked the same question a sixth time. 
 
-### Five Tests Replace One Test on the Next Tier of the Testing Pyramid
+### Five Tests To Move One Test Down the Testing Pyramid
 
 I don't want to talk about whether Unit and Functional or Unit and Integration tests touch in the
 Pyramid. That is a perspective difference between people who write libraries and people who write
@@ -159,9 +190,6 @@ water comes out of the tap. If they don't ask for your signature immediately aft
 test, then it's because something went horribly wrong. So I check my materials. I check the
 connections, then I check the End to End as a sanity check on everything else I've touched.
 
-### Six Reports is Enough for Anyone
-
-There is a real danger in managers not having enough to do 
 ### Each Testing Tier is Eight Times Faster Than the One Above
 
 Why would you make more tests for yourself if one would do? Well the answer is that in most 
