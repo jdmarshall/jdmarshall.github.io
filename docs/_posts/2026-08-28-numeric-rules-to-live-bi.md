@@ -3,7 +3,6 @@ layout: post
 title: "Numerical Rules I Live By"
 topics: [ Development, Growth ]
 excerpt: "Some of the aphorisms that I use at work are rules of thumb based upon numbers. These are some."
-published: false
 ---
 
     A clever saying proves nothing.
