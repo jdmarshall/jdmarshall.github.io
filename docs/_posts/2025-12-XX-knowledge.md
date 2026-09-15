@@ -14,7 +14,7 @@ The first task I complete at any new job is fixing the onboarding docs.
 ### Working Set vs Memorization
 
 This, incidentally, also neatly explains why some devs can become antagonistic to the idea of 
-refactoring of code - you are moving around things that are already part of their Tribal Knowledge
+refactoring of code - you are moving around things that are already part of their Tribal Knowledge.
 and now they will have a harder time working with them in the future. 
 
 It's not enough to refactor code, you have to improve its discoverability as well, so the old hands
